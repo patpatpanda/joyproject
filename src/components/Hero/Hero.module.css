@@ -1,0 +1,103 @@
+/* src/components/Hero/Hero.module.css */
+/* src/components/Hero/Hero.module.css */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.5);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.4));
+  opacity: 0;
+  transform: scale(0.5);
+  animation: zoomIn 1.8s ease-out 1s forwards; /* Elegant zoom-in för loggan */
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #E0E0E0;
+  max-width: 90%;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  padding: 0.8rem 2.5rem;
+  background-color: #A89C8A;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease, border 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: transparent;
+  border: 2px solid #A89C8A;
+  transform: scale(1.08);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

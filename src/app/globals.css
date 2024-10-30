@@ -1,21 +1,42 @@
+
+/* src/styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --primary-color: #6B7754; /* Loggans gröna */
+  --background-color: #F5F5F0; /* Ljus beige */
+  --secondary-color: #3B3F33; /* Mörkgrön för kontrast */
+  --accent-color: #B8A383; /* Gyllene sand */
+  --text-color: #4A4A48; /* Mörkgrå för text */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+header, footer {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 1rem;
+}
+
+h1, h2, h3 {
+  color: var(--secondary-color);
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-color);
 }

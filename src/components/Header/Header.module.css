@@ -1,0 +1,118 @@
+/* src/components/Header/Header.module.css */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #4A4A48;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 0 2rem;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #A89C8A; /* En lyxig färg som guldaktig beige */
+  font-family: 'Playfair Display', serif; /* En stilfull serif-typ */
+  letter-spacing: 1.5px; /* Ökar exklusiviteten */
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+.nav a {
+  color: #4A4A48;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.4s ease;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #A89C8A;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom right;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.menuButton {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #4A4A48;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.menuButton:hover {
+  transform: scale(1.1);
+  color: #A89C8A;
+}
+
+/* Responsiv design för mobila enheter */
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+
+  .header {
+    height: 70px;
+  }
+
+  .logoText {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: absolute;
+    top: 80px;
+    right: 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 220px;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+}
