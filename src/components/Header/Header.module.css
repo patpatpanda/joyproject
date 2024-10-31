@@ -1,4 +1,5 @@
 /* src/components/Header/Header.module.css */
+
 .header {
   position: fixed;
   top: 0;
@@ -30,9 +31,9 @@
 .logoText {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #A89C8A; /* En lyxig färg som guldaktig beige */
-  font-family: 'Playfair Display', serif; /* En stilfull serif-typ */
-  letter-spacing: 1.5px; /* Ökar exklusiviteten */
+  color: #A89C8A;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
@@ -46,9 +47,9 @@
   color: #4A4A48;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.4s ease;
-  padding-bottom: 5px;
   position: relative;
+  padding-bottom: 5px;
+  transition: color 0.4s ease;
 }
 
 .nav a::after {
@@ -69,6 +70,46 @@
   transform-origin: bottom left;
 }
 
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Placera under "Destinationer" */
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  list-style: none;
+  border-radius: 4px;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdownMenu {
+  display: block; /* Visa menyn vid hover */
+}
+
+.dropdownMenu li {
+  padding: 0.5rem 1.5rem;
+}
+
+.dropdownMenu li a {
+  color: #4A4A48;
+  text-decoration: none;
+  display: block;
+  font-weight: 400;
+}
+
+.dropdownMenu li a:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Mobila enheter */
 .menuButton {
   display: none;
   font-size: 1.5rem;
@@ -84,7 +125,6 @@
   color: #A89C8A;
 }
 
-/* Responsiv design för mobila enheter */
 @media (max-width: 768px) {
   .menuButton {
     display: block;
@@ -114,5 +154,12 @@
 
   .navOpen {
     display: flex;
+  }
+
+  /* För dropdown i mobilvisning */
+  .dropdownMenu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
   }
 }

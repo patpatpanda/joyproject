@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -15,17 +16,27 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
-          <span className={styles.logoText}>JOY Destinations</span> {/* Ny logotext */}
+          <span className={styles.logoText}>JOY Destinations</span>
         </div>
         
-        {/* Om menyn är öppen, lägg till klassen `navOpen` */}
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
-          <a href="#home">Hem</a>
-          <a href="#services">Tjänster</a>
-          <a href="#destinations">Destinationer</a>
-          <a href="#contact">Kontakt</a>
+          <Link href="/">Hem</Link>
+          <Link href="/#services">Tjänster</Link>
+          
+          {/* Dropdown för Destinationer */}
+          <div className={styles.dropdown}>
+            <Link href="/destination">Destinationer</Link>
+            <ul className={styles.dropdownMenu}>
+              <li><Link href="/destination/italy">Italien</Link></li>
+              <li><Link href="/destination/france">Frankrike</Link></li>
+              <li><Link href="/destination/spain">Spanien</Link></li>
+              {/* Lägg till fler destinationer */}
+            </ul>
+          </div>
+
+          <Link href="/#contact">Kontakt</Link>
         </nav>
-        
+
         <button className={styles.menuButton} onClick={toggleMenu}>
           ☰
         </button>
