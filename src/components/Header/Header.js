@@ -28,8 +28,8 @@ export default function Header() {
             <Link href="/destination">Destinationer</Link>
             <ul className={styles.dropdownMenu}>
               <li><Link href="/destination/italy">Italien</Link></li>
-              <li><Link href="/destination/france">Frankrike</Link></li>
-              <li><Link href="/destination/spain">Spanien</Link></li>
+              <li><Link href="/destination/norway">Norge</Link></li>
+              <li><Link href="/destination/Austria">Österike</Link></li>
               {/* Lägg till fler destinationer */}
             </ul>
           </div>

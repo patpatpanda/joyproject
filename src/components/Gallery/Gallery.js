@@ -8,7 +8,7 @@ export default function Gallery() {
     { name: "Italien", image: "/images/italy.jpg" },
     { name: "Österrike", image: "/images/österike.jpg" },
     { name: "Norge", image: "/images/norway.jpg" },
-    { name: "Frankrike", image: "/images/france.jpg" }
+   
   ];
 
   return (
