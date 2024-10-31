@@ -8,11 +8,11 @@ export default function Destination({ data }) {
     <section className={styles.destination}>
       {/* Hero Section with Soft Overlay */}
       <div className={styles.hero} style={{ backgroundImage: `url(${data.heroImage})` }}>
-        <h1 className={styles.heroTitle}>{data.name}</h1>
+        <h1 className={`${styles.heroTitle} ${styles.fadeIn}`}>{data.name}</h1>
       </div>
 
       {/* General Info Section */}
-      <div className={styles.generalInfo}>
+      <div className={`${styles.generalInfo} ${styles.fadeIn}`}>
         <h2>Allmän Information</h2>
         <p><strong>Huvudstad:</strong> {data.general.capital}</p>
         <p><strong>Språk:</strong> {data.general.language}</p>
@@ -22,7 +22,7 @@ export default function Destination({ data }) {
       </div>
 
       {/* Food Section */}
-      <div className={styles.section}>
+      <div className={`${styles.section} ${styles.fadeIn}`}>
         <img src={data.foodImage} alt={`${data.name} Mat`} className={styles.image} />
         <div>
           <h2>{data.name} Mat</h2>
@@ -31,7 +31,7 @@ export default function Destination({ data }) {
       </div>
 
       {/* Fun Facts Section */}
-      <div className={styles.section}>
+      <div className={`${styles.section} ${styles.fadeIn}`}>
         <h2>Visste Du Att?</h2>
         <ul className={styles.list}>
           {data.facts.map((fact, index) => (
@@ -41,7 +41,7 @@ export default function Destination({ data }) {
       </div>
 
       {/* Popular Destinations Section */}
-      <div className={styles.section}>
+      <div className={`${styles.section} ${styles.fadeIn}`}>
         <img src={data.popularDestinationsImage} alt="Populära Resmål" className={styles.image} />
         <div>
           <h2>Populära Resmål i {data.name}</h2>
@@ -50,7 +50,7 @@ export default function Destination({ data }) {
       </div>
 
       {/* Travel Tips Section */}
-      <div className={styles.section}>
+      <div className={`${styles.section} ${styles.fadeIn}`}>
         <img src={data.tipsImage} alt="Resenärstips" className={styles.image} />
         <div>
           <h2>Tips för Resenärer</h2>
