@@ -21,35 +21,33 @@ export default function QuoteCarousel() {
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    // Visa citatet med in-fade och vänta 4 sekunder
     const fadeInTimeout = setTimeout(() => {
       setFade(true);
-    }, 100); // Kort fördröjning för att trigga fade in
+    }, 100);
 
-    // Efter 4 sekunder, börja uttoning
     const fadeOutTimeout = setTimeout(() => {
       setFade(false);
-    }, 4000); // Visa citatet i 4 sekunder
+    }, 4000);
 
-    // Efter 4.5 sekunder, byt till nästa citat och börja fade in
     const changeQuoteTimeout = setTimeout(() => {
-      setCurrentQuoteIndex((currentQuoteIndex + 1) % quotes.length);
-      setDisplayText(quotes[(currentQuoteIndex + 1) % quotes.length]);
+      const nextIndex = (currentQuoteIndex + 1) % quotes.length;
+      setCurrentQuoteIndex(nextIndex);
+      setDisplayText(quotes[nextIndex]);
       setFade(true);
-    }, 4500); // Totalt 4.5 sekunder (med 0.5 sekunder fade out)
+    }, 4500);
 
     return () => {
       clearTimeout(fadeInTimeout);
       clearTimeout(fadeOutTimeout);
       clearTimeout(changeQuoteTimeout);
     };
-  }, [currentQuoteIndex]);
+  }, [currentQuoteIndex, quotes]);
 
   return (
     <section className={styles.quoteCarousel}>
       <div className={`${styles.quoteContainer} ${fade ? styles.fadeIn : styles.fadeOut}`}>
         <p className={styles.quoteText}>
-          "{displayText}"
+          &quot;{displayText}&quot;
         </p>
       </div>
     </section>
