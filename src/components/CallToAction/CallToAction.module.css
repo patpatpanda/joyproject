@@ -14,7 +14,7 @@
 
 .sectionTitle {
   font-size: 2.6rem;
-  color: #6B7754;
+  color: #4A4A48;
   margin-bottom: 2rem;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
@@ -81,7 +81,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: #ffffff;
-  background-color: #6B7754;
+  background-color: #A89C8A;
   border: none;
   border-radius: 30px;
   cursor: pointer;

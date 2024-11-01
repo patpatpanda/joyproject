@@ -16,7 +16,7 @@
 .hero {
   position: relative;
   width: 100%; /* Täcker hela sidans bredd */
-  height: 200px; /* Låg höjd */
+  height: 100px; /* Låg höjd */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -127,7 +127,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero {
-    height: 200px;
+    height: 100px;
   }
 
   .heroTitle {
