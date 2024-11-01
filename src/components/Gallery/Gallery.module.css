@@ -39,30 +39,28 @@
   object-fit: cover;
 }
 
+/* Justera overlay för att täcka undre halvan av kortet */
 .overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.15); /* Lätt transparent vit för glas-effekt */
-  backdrop-filter: blur(10px); /* Mer sudd för en frostad glas-effekt */
+  height: 30%; /* Täck endast den undre halvan */
+  background: rgba(255, 255, 255, 0.15); /* Lätt transparent för glas-effekt */
+  backdrop-filter: blur(10px); /* Frostad glas-effekt */
   -webkit-backdrop-filter: blur(10px); /* Safari-stöd */
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover .overlay {
-  opacity: 1;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .destinationName {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #ffffff; /* Sätter texten till vit */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Starkare textskugga för ökad läsbarhet */
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Starkare skugga för kontrast */
+  text-align: center;
 }

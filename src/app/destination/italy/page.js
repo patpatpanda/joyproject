@@ -13,6 +13,12 @@ const italyData = {
     area: "301,340 km²",
   },
   
+  theme: {
+    primary: "#009246",   // Italiensk grön (från flaggan)
+    secondary: "#CE2B37", // Italiensk röd (från flaggan)
+    accent: "#FFFFFF",    // Vit accentfärg för kontrast
+  },
+
   description:
     "Italiens matkultur är världsberömd för sin enkelhet, kvalitet och starka regionala identitet. Varje region har sina unika specialiteter – från norra Italiens krämiga risotto och tryffelrätter till södra Italiens solmogna tomater, olivolja och pizza från Neapel. Italiensk mat bygger på färska, säsongsbetonade ingredienser där varje rätt lyfter fram råvarans naturliga smaker. Tradition och familj är centrala, och måltider ses som sociala stunder att njuta tillsammans. Med Slow Food-rörelsens påverkan står Italien också för hållbarhet och respekt för lokala produkter. Matens följeslagare är landets berömda viner och en gedigen kaffekultur, där varje måltid avslutas med en espresso.",
   foodImage: "/images/italy/food.jpg",

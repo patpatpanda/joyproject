@@ -1,0 +1,132 @@
+/* src/components/CallToAction/CallToAction.module.css */
+
+.contactSection {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.sectionSubtitle {
+  font-size: 1.4rem;
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px; /* Lägger till max-bredd på själva formuläret */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formLabel {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  text-align: left; /* Sätt label till vänster för bättre läsbarhet */
+}
+
+.formInput {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus {
+  border-color: #A89C8A; /* Lyxig beige färg */
+  outline: none;
+}
+
+.formButton {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #A89C8A;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.formButton:hover {
+  background-color: #8C8577;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.formStatus {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.socialMediaSection {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.socialTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.socialIcon {
+  color: #A89C8A;
+  font-size: 2.4rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.socialIcon:hover {
+  color: #8C8577;
+  transform: scale(1.1);
+}
+
+.contactInfo {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 1.5rem;
+}
+
+.honeypot {
+  display: none; /* Döljer honeypot-fältet från användare */
+}
