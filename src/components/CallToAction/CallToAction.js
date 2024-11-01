@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
-import styles from "./CallToAction.module.css"; // Importera CSS-modulen
+import styles from "./CallToAction.module.css";
 
 const CallToAction = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +11,6 @@ const CallToAction = () => {
     message: "",
     honeypot: "",
   });
-
   const [formLoadedAt, setFormLoadedAt] = useState(Date.now());
   const [status, setStatus] = useState("");
 
@@ -53,9 +52,10 @@ const CallToAction = () => {
 
   return (
     <section id="contact" className={styles.contactSection}>
+      <div className={styles.separator}></div>
       <h2 className={styles.sectionTitle}>Kontakta oss</h2>
       <p className={styles.sectionSubtitle}>
-      Vi ser fram emot att höra av dig! Använd gärna formuläret nedan eller ring oss för ett personligt samtal.
+        Vi ser fram emot att höra av dig! Använd gärna formuläret nedan eller ring oss för ett personligt samtal.
       </p>
 
       <div className={styles.formContainer}>
@@ -105,7 +105,6 @@ const CallToAction = () => {
             ></textarea>
           </div>
 
-          {/* Honeypot field, hidden from users */}
           <div className={styles.honeypot}>
             <label htmlFor="honeypot">Lämna detta fält tomt</label>
             <input
@@ -143,7 +142,7 @@ const CallToAction = () => {
             <FaLinkedin />
           </a>
         </div>
-        <p className={styles.contactInfo}>E-post: info@bonnatosen.se | Telefon: 012-345 6789</p>
+        <p className={styles.contactInfo}>E-post: joyrudqvist@gmail.com | Telefon: 012-345 6789</p>
       </div>
     </section>
   );

@@ -3,32 +3,37 @@
 .contactSection {
   max-width: 800px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 5rem 2.5rem;
   text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin-top: 100px;
+ 
+  backdrop-filter: blur(8px); /* Mjuk glas-effekt */
+  border-radius: 15px;
+ 
+  margin-top: 150px;
 }
 
 .sectionTitle {
-  font-size: 2.8rem;
-  color: #333;
+  font-size: 2.6rem;
+  color: #4A4A48;
   margin-bottom: 2rem;
   font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .sectionSubtitle {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #666;
   margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 .formContainer {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .form {
@@ -37,7 +42,7 @@
   align-items: center;
   gap: 1.5rem;
   width: 100%;
-  max-width: 600px; /* Lägger till max-bredd på själva formuläret */
+  max-width: 600px;
 }
 
 .formGroup {
@@ -47,50 +52,52 @@
 }
 
 .formLabel {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #555;
   margin-bottom: 0.5rem;
-  text-align: left; /* Sätt label till vänster för bättre läsbarhet */
+  text-align: left;
+  font-weight: 500;
 }
 
 .formInput {
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: #ffffff;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
   width: 100%;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .formInput:focus {
-  border-color: #A89C8A; /* Lyxig beige färg */
+  border-color: #A89C8A;
   outline: none;
+  box-shadow: 0 2px 8px rgba(168, 156, 138, 0.3);
 }
 
 .formButton {
-  padding: 1rem 3rem;
+  padding: 1rem 3.5rem;
   font-size: 1.2rem;
   font-weight: bold;
   color: #ffffff;
   background-color: #A89C8A;
   border: none;
-  border-radius: 50px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .formButton:hover {
   background-color: #8C8577;
-  transform: scale(1.05);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .formStatus {
-  font-size: 1.2rem;
-  color: #666;
-  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1.5rem;
 }
 
 .socialMediaSection {
@@ -99,34 +106,58 @@
 }
 
 .socialTitle {
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 1.7rem;
+  color: #4A4A48;
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .socialIcons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.8rem;
 }
 
 .socialIcon {
   color: #A89C8A;
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .socialIcon:hover {
   color: #8C8577;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .contactInfo {
   font-size: 1.1rem;
   color: #666;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
+  font-style: italic;
 }
 
 .honeypot {
-  display: none; /* Döljer honeypot-fältet från användare */
+  display: none;
+}
+/* Ytteromslag för snedställda sektioner */
+.separator {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #a89c8a, #8c8577);
+  margin-bottom: 2rem;
+}
+
+.socialIcon:hover {
+  color: #8C8577;
+  transform: rotate(15deg) scale(1.1);
+}
+
+.socialIcons a:hover {
+  transform: scale(1.15);
+}
+
+.formButton:hover {
+  background-color: #8C8577;
+  transform: translateY(-2px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }

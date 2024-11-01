@@ -9,9 +9,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Gallery />
-      <QuoteCarousel />
+     
         <AboutUs />
+        <Gallery />
+        <QuoteCarousel />
         <CallToAction/>
     </>
   );

@@ -24,7 +24,7 @@ export default function Footer() {
 
         <div className={styles.contactSection}>
           <h3 className={styles.sectionTitle}>Kontakt</h3>
-          <p>Email: info@joydestinations.com</p>
+          <p>Email: joyrudqvist@gmail.com</p>
           <p>Telefon: +46 123 456 789</p>
           <p>Adress: Storgatan 1, 111 22 Stockholm</p>
         </div>

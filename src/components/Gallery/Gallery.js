@@ -1,7 +1,6 @@
 // src/components/Gallery/Gallery.js
-"use client";
 
-import Link from 'next/link'; // Importera Link från Next.js
+import Link from 'next/link';
 import styles from './Gallery.module.css';
 
 export default function Gallery() {
