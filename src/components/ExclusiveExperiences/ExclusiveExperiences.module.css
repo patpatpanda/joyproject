@@ -84,3 +84,32 @@
 .contactButton:hover {
   background-color: var(--secondary-color);
 }
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .videoContainer, .content {
+    width: 100%;
+    height: auto;
+  }
+
+  .videoContainer {
+    height: 250px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
