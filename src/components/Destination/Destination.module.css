@@ -1,154 +1,104 @@
-/* Destination Component Style */
+/* src/components/Destination/Destination.module.css */
+
 .destination {
   max-width: 1000px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   font-family: 'Playfair Display', serif;
   line-height: 1.8;
-  color: #333;
- 
+  color: var(--text-color);
 }
-
-/* src/components/Destination/Destination.module.css */
-
-/* src/components/Destination/Destination.module.css */
 
 .hero {
   position: relative;
-  width: 100%; /* Täcker hela sidans bredd */
-  height: 100px; /* Låg höjd */
-  background-size: cover;
-  background-position: center;
+  height: 600px;
   display: flex;
-  align-items: center;
-  margin-top: 75px;
+  align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 
-/* Overlay för dynamisk gradient */
-.heroOverlay {
+.heroVideo {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
 }
 
-/* Titel i hero-sektionen */
-.heroTitle {
-  font-size: 2.5rem;
-  color: #fff;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Resten av CSS-regler för övriga sektioner... */
-
-
-
-@keyframes gradientShift {
-  0%, 100% {
-    background: linear-gradient(180deg, rgba(0, 146, 70, 0.6), rgba(255, 255, 255, 0.4), rgba(206, 43, 55, 0.6));
-  }
-  50% {
-    background: linear-gradient(180deg, rgba(0, 146, 70, 0.4), rgba(255, 255, 255, 0.2), rgba(206, 43, 55, 0.4));
-  }
-}
-/* General Info Section with Soft Dividers */
-/* General Info Section with Soft Dividers */
-.generalInfo {
-  margin-top: 3rem;
-  font-size: 1.1rem;
-  color: #555;
-  padding-left: 1.5rem;
-  border-left: 4px solid #d3a35e;
-}
-
-/* Section Styling */
 .section {
-  display: flex;
-  gap: 2rem;
-  margin-top: 4rem;
-  align-items: flex-start;
+  margin-top: 3rem;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.section img {
-  width: 45%;
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.section img:hover {
-  transform: scale(1.05);
-}
-
-.section div {
-  flex: 1;
-}
-
-/* Headings Style */
-.section h2 {
+.sectionTitle {
   font-size: 2rem;
-  color: #444;
+  color: var(--primary-color);
   margin-bottom: 1rem;
-  font-weight: 600;
-  border-bottom: 2px solid #d3a35e;
-  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: bold;
 }
 
-/* List Style */
+.icon {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+}
+
 .list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 .listItem {
-  margin-bottom: 0.8rem;
-  padding-left: 1.5rem;
-  position: relative;
   font-size: 1.1rem;
-  color: #333;
-}
-
-.listItem::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #d3a35e;
-  font-size: 1.3rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero {
-    height: 100px;
+    height: 300px;
   }
 
-  .heroTitle {
-    font-size: 2rem;
+  .sectionTitle {
+    font-size: 1.8rem;
   }
 
   .section {
     flex-direction: column;
   }
-
-  .section img {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 1.5rem;
-  }
 }
-/* Fade-in animation */
+
 .fadeIn {
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInAnimation 2.5s ease-out forwards;
+  animation: fadeInAnimation 1.5s ease-out forwards;
 }
 
 @keyframes fadeInAnimation {

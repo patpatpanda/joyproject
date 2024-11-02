@@ -1,0 +1,89 @@
+/* src/app/services/Services.module.css */
+
+.servicesSection {
+  padding: 4rem 1.5rem;
+  background-color: var(--background-color);
+  text-align: center;
+  margin-top: 100px;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.serviceContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.serviceCard {
+  background: var(--primary-color);
+  color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: var(--animation-delay); /* Fördröjning per kort */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--background-color);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.iconContainer:hover {
+  transform: scale(1.1);
+}
+
+.family::before { content: "👨‍👩‍👧‍👦"; }
+.planning::before { content: "✈️"; }
+.globe::before { content: "🌍"; }
+
+.cardTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--background-color);
+}
+
+/* In-fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

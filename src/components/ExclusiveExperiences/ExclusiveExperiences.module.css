@@ -1,0 +1,86 @@
+/* src/components/ExclusiveExperiences/ExclusiveExperiences.module.css */
+
+.exclusiveExperiences {
+  padding: 4rem 2rem;
+  background-color: var(--background-color);
+  margin-top: 200px;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.videoContainer {
+  width: 50%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  width: 50%;
+}
+
+.name {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.contactButton {
+  padding: 0.7rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: var(--secondary-color);
+}

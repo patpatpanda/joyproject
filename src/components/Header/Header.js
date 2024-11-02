@@ -26,7 +26,7 @@ export default function Header() {
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
           <Link href="/" onClick={closeMenu}>Hem</Link>
-          <Link href="/#services" onClick={closeMenu}>Tjänster</Link>
+          <Link href="/services" onClick={closeMenu}>Tjänster</Link>
           
           {/* Dropdown för Destinationer */}
           <div className={styles.dropdown}>

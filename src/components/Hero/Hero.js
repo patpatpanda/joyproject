@@ -3,6 +3,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import styles from './Hero.module.css';
+import Link from 'next/link';
 
 export default function Hero() {
   const video1Ref = useRef(null);
@@ -10,17 +11,19 @@ export default function Hero() {
   const [showFirstVideo, setShowFirstVideo] = useState(true);
 
   useEffect(() => {
+    // Funktion för att hantera slutet på första videon
     const handleFirstVideoEnd = () => {
       setShowFirstVideo(false);
       if (video2Ref.current) {
         video2Ref.current.play().catch(() => {
-          // Fallback för mobila enheter: Loopa första videon om andra inte kan spelas
+          // Om den andra videon inte spelas, återgå till första videon
           setShowFirstVideo(true);
           video1Ref.current.play();
         });
       }
     };
 
+    // Funktion för att hantera slutet på andra videon
     const handleSecondVideoEnd = () => {
       setShowFirstVideo(true);
       video1Ref.current.play();
@@ -73,7 +76,10 @@ export default function Hero() {
           exklusiva och skräddarsydda resor får du chansen att utforska ikoniska platser
           och gömda pärlor, omslutna av lyx och omtanke.
         </p>
-        <button className={styles.ctaButton}>Upptäck dina drömmars resa</button>
+        <Link href="/services">
+  <button className={styles.ctaButton}>Upptäck dina drömmars resa</button>
+</Link>
+
       </div>
     </section>
   );
