@@ -32,17 +32,14 @@ export default function ExclusiveExperiences() {
     },
   ];
 
-  // Skapar observer-funktionen som referens för stabilare hantering
   const handleIntersection = useCallback(
     (entries) => {
       entries.forEach((entry) => {
         const index = parseInt(entry.target.dataset.index, 10);
         if (entry.isIntersecting) {
           setVisibleSections((prev) => {
-            if (!prev.includes(index)) {
-              return [...prev, index];
-            }
-            return prev;
+            // Lägg bara till om index inte redan finns
+            return prev.includes(index) ? prev : [...prev, index];
           });
         }
       });
@@ -52,13 +49,18 @@ export default function ExclusiveExperiences() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.2, // Ökad tröskel för bättre tillförlitlighet
+      threshold: 0.2,
     });
 
-    sectionsRef.current.forEach((section) => observer.observe(section));
+    sectionsRef.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
 
     return () => {
-      sectionsRef.current.forEach((section) => observer.unobserve(section));
+      sectionsRef.current.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+      sectionsRef.current = []; // Rensa referenser vid avmontering
     };
   }, [handleIntersection]);
 

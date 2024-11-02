@@ -1,7 +1,7 @@
 // src/components/Hero/Hero.js
 "use client";
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import styles from './Hero.module.css';
 import Link from 'next/link';
 
@@ -10,36 +10,43 @@ export default function Hero() {
   const video2Ref = useRef(null);
   const [showFirstVideo, setShowFirstVideo] = useState(true);
 
+  // Använder useCallback för att undvika att skapa nya funktioner varje gång komponenten renderas
+  const handleFirstVideoEnd = useCallback(() => {
+    setShowFirstVideo(false);
+    if (video2Ref.current) {
+      video2Ref.current.play().catch(() => {
+        // Om den andra videon inte spelas, återgå till första videon
+        setShowFirstVideo(true);
+        video1Ref.current?.play();
+      });
+    }
+  }, []);
+
+  const handleSecondVideoEnd = useCallback(() => {
+    setShowFirstVideo(true);
+    video1Ref.current?.play();
+  }, []);
+
   useEffect(() => {
-    // Funktion för att hantera slutet på första videon
-    const handleFirstVideoEnd = () => {
-      setShowFirstVideo(false);
-      if (video2Ref.current) {
-        video2Ref.current.play().catch(() => {
-          // Om den andra videon inte spelas, återgå till första videon
-          setShowFirstVideo(true);
-          video1Ref.current.play();
-        });
-      }
-    };
-
-    // Funktion för att hantera slutet på andra videon
-    const handleSecondVideoEnd = () => {
-      setShowFirstVideo(true);
-      video1Ref.current.play();
-    };
-
     const video1 = video1Ref.current;
     const video2 = video2Ref.current;
 
-    video1.addEventListener('ended', handleFirstVideoEnd);
-    video2.addEventListener('ended', handleSecondVideoEnd);
+    if (video1) {
+      video1.addEventListener('ended', handleFirstVideoEnd);
+    }
+    if (video2) {
+      video2.addEventListener('ended', handleSecondVideoEnd);
+    }
 
     return () => {
-      video1.removeEventListener('ended', handleFirstVideoEnd);
-      video2.removeEventListener('ended', handleSecondVideoEnd);
+      if (video1) {
+        video1.removeEventListener('ended', handleFirstVideoEnd);
+      }
+      if (video2) {
+        video2.removeEventListener('ended', handleSecondVideoEnd);
+      }
     };
-  }, []);
+  }, [handleFirstVideoEnd, handleSecondVideoEnd]);
 
   return (
     <section className={styles.hero}>
@@ -77,9 +84,8 @@ export default function Hero() {
           och gömda pärlor, omslutna av lyx och omtanke.
         </p>
         <Link href="/services">
-  <button className={styles.ctaButton}>Upptäck dina drömmars resa</button>
-</Link>
-
+          <button className={styles.ctaButton}>Upptäck dina drömmars resa</button>
+        </Link>
       </div>
     </section>
   );

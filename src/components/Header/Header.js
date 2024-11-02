@@ -30,11 +30,11 @@ export default function Header() {
           
           {/* Dropdown för Destinationer */}
           <div className={styles.dropdown}>
-            <Link href="/destination" onClick={closeMenu}>Destinationer</Link>
+            <span className={styles.dropdownTitle}>Destinationer</span>
             <ul className={styles.dropdownMenu}>
               <li><Link href="/destination/italy" onClick={closeMenu}>Italien</Link></li>
               <li><Link href="/destination/norway" onClick={closeMenu}>Norge</Link></li>
-              <li><Link href="/destination/Austria" onClick={closeMenu}>Österike</Link></li>
+              <li><Link href="/destination/Austria" onClick={closeMenu}>Österrike</Link></li>
               {/* Lägg till fler destinationer */}
             </ul>
           </div>
