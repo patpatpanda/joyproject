@@ -1,52 +1,21 @@
 // src/components/Hero/Hero.js
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useRef, useEffect } from 'react';
 import styles from './Hero.module.css';
 import Link from 'next/link';
 
 export default function Hero() {
   const video1Ref = useRef(null);
-  const video2Ref = useRef(null);
-  const [showFirstVideo, setShowFirstVideo] = useState(true);
-
-  // Använder useCallback för att undvika att skapa nya funktioner varje gång komponenten renderas
-  const handleFirstVideoEnd = useCallback(() => {
-    setShowFirstVideo(false);
-    if (video2Ref.current) {
-      video2Ref.current.play().catch(() => {
-        // Om den andra videon inte spelas, återgå till första videon
-        setShowFirstVideo(true);
-        video1Ref.current?.play();
-      });
-    }
-  }, []);
-
-  const handleSecondVideoEnd = useCallback(() => {
-    setShowFirstVideo(true);
-    video1Ref.current?.play();
-  }, []);
 
   useEffect(() => {
     const video1 = video1Ref.current;
-    const video2 = video2Ref.current;
-
     if (video1) {
-      video1.addEventListener('ended', handleFirstVideoEnd);
+      video1.play().catch((error) => {
+        console.error("Error playing the video:", error);
+      });
     }
-    if (video2) {
-      video2.addEventListener('ended', handleSecondVideoEnd);
-    }
-
-    return () => {
-      if (video1) {
-        video1.removeEventListener('ended', handleFirstVideoEnd);
-      }
-      if (video2) {
-        video2.removeEventListener('ended', handleSecondVideoEnd);
-      }
-    };
-  }, [handleFirstVideoEnd, handleSecondVideoEnd]);
+  }, []);
 
   return (
     <section className={styles.hero}>
@@ -55,22 +24,10 @@ export default function Hero() {
         autoPlay
         muted
         playsInline
-        loop={!showFirstVideo} // Loopa första videon om fallback är aktiv
+        loop
         className={styles.backgroundVideo}
-        style={{ display: showFirstVideo ? 'block' : 'none' }}
       >
-        <source src="/images/li.mp4" type="video/mp4" />
-        Din webbläsare stöder inte videouppspelning.
-      </video>
-
-      <video
-        ref={video2Ref}
-        muted
-        playsInline
-        className={styles.backgroundVideo}
-        style={{ display: showFirstVideo ? 'none' : 'block' }}
-      >
-        <source src="/images/lo.mp4" type="video/mp4" />
+        <source src="/videos/hero.mp4" type="video/mp4" />
         Din webbläsare stöder inte videouppspelning.
       </video>
 
