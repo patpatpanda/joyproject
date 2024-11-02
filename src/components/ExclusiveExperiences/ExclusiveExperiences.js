@@ -1,7 +1,7 @@
 // src/components/ExclusiveExperiences/ExclusiveExperiences.js
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import styles from "./ExclusiveExperiences.module.css";
 
 export default function ExclusiveExperiences() {
@@ -13,7 +13,7 @@ export default function ExclusiveExperiences() {
       name: "Glamping-äventyr",
       video: "/videos/glamping.mp4",
       description:
-        "Upplev en annorlunda typ av camping där natur möter lyx. Tänk dig att vakna upp till soluppgången med fågelkvitter och frisk skogsluft, allt medan du bor bekvämt och rymligt. Med vår glamping får du det bästa av två världar – charmiga, naturliga omgivningar och moderna bekvämligheter.",
+        "Upplev en annorlunda typ av camping där natur möter lyx. Tänk dig att vakna upp till soluppgången med fågelkvitter och frisk skogsluft, allt medan du bor bekvämt och rymligt.",
       price: "Pris: 15 000kr",
     },
     {
@@ -27,35 +27,40 @@ export default function ExclusiveExperiences() {
       name: "Avkopplande getaway",
       video: "/videos/gateway.mp4",
       description:
-        "I en värld där vardagen ofta går i högt tempo, är en avkopplande getaway precis vad du behöver för att komma i balans. Vi erbjuder unika boenden på rofyllda platser, där du kan koppla av och återhämta dig.",
+        "I en värld där vardagen ofta går i högt tempo, är en avkopplande getaway precis vad du behöver för att komma i balans.",
       price: "Pris: 30 000kr",
     },
   ];
 
+  // Skapar observer-funktionen som referens för stabilare hantering
+  const handleIntersection = useCallback(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.dataset.index, 10);
+        if (entry.isIntersecting) {
+          setVisibleSections((prev) => {
+            if (!prev.includes(index)) {
+              return [...prev, index];
+            }
+            return prev;
+          });
+        }
+      });
+    },
+    []
+  );
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = parseInt(entry.target.dataset.index, 10);
-          if (entry.isIntersecting) {
-            setVisibleSections((prev) => {
-              if (!prev.includes(index)) {
-                return [...prev, index];
-              }
-              return prev;
-            });
-          }
-        });
-      },
-      { threshold: 0.3 } // Trigger when 30% of the section is visible
-    );
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.2, // Ökad tröskel för bättre tillförlitlighet
+    });
 
     sectionsRef.current.forEach((section) => observer.observe(section));
 
     return () => {
       sectionsRef.current.forEach((section) => observer.unobserve(section));
     };
-  }, []);
+  }, [handleIntersection]);
 
   return (
     <section className={styles.exclusiveExperiences}>
