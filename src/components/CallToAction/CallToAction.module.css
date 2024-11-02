@@ -1,31 +1,48 @@
-/* src/components/CallToAction/CallToAction.module.css */
-
 .contactSection {
   max-width: 800px;
   margin: 0 auto;
   padding: 5rem 2.5rem;
   text-align: center;
- 
-  backdrop-filter: blur(8px); /* Mjuk glas-effekt */
+  position: relative;
+  background: var(--background-color);
   border-radius: 15px;
- 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   margin-top: 150px;
+  overflow: hidden;
+}
+
+/* Slanted sections - start and end */
+.slantedRightTop, .slantedRightBottom {
+  position: absolute;
+  width: 100vw;
+  height: 70px;
+  right: -50vw; /* Shift to the right */
+  background-color: #A89C8A; /* Adjust color as needed */
+  transform: skewY(-5deg); /* Slant angle */
+  z-index: -1;
+}
+
+.slantedRightTop {
+  top: -35px;
+}
+
+.slantedRightBottom {
+  bottom: -35px;
+  transform: skewY(5deg); /* Opposite angle for bottom */
 }
 
 .sectionTitle {
   font-size: 2.6rem;
-  color: #4A4A48;
+  color: var(--text-color);
   margin-bottom: 2rem;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .sectionSubtitle {
   font-size: 1.3rem;
   color: #666;
   margin-bottom: 3rem;
-  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -46,8 +63,6 @@
 }
 
 .formGroup {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 
@@ -56,7 +71,6 @@
   color: #555;
   margin-bottom: 0.5rem;
   text-align: left;
-  font-weight: 500;
 }
 
 .formInput {
@@ -79,37 +93,27 @@
 .formButton {
   padding: 1rem 3.5rem;
   font-size: 1.2rem;
-  font-weight: bold;
   color: #ffffff;
   background-color: #A89C8A;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .formButton:hover {
   background-color: #8C8577;
   transform: translateY(-2px);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.formStatus {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 1.5rem;
 }
 
 .socialMediaSection {
   margin-top: 3rem;
-  text-align: center;
 }
 
 .socialTitle {
   font-size: 1.7rem;
-  color: #4A4A48;
+  color: var(--text-color);
   margin-bottom: 1.5rem;
-  font-weight: 500;
 }
 
 .socialIcons {
@@ -134,30 +138,4 @@
   color: #666;
   margin-top: 1.2rem;
   font-style: italic;
-}
-
-.honeypot {
-  display: none;
-}
-/* Ytteromslag för snedställda sektioner */
-.separator {
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, #a89c8a, #8c8577);
-  margin-bottom: 2rem;
-}
-
-.socialIcon:hover {
-  color: #8C8577;
-  transform: rotate(15deg) scale(1.1);
-}
-
-.socialIcons a:hover {
-  transform: scale(1.15);
-}
-
-.formButton:hover {
-  background-color: #8C8577;
-  transform: translateY(-2px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }

@@ -1,3 +1,4 @@
+// src/components/CallToAction/CallToAction.js
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -52,7 +53,7 @@ const CallToAction = () => {
 
   return (
     <section id="contact" className={styles.contactSection}>
-      <div className={styles.separator}></div>
+      <div className={styles.slantedRightTop}></div>
       <h2 className={styles.sectionTitle}>Kontakta oss</h2>
       <p className={styles.sectionSubtitle}>
         Vi ser fram emot att höra av dig! Använd gärna formuläret nedan eller ring oss för ett personligt samtal.
@@ -105,14 +106,16 @@ const CallToAction = () => {
             ></textarea>
           </div>
 
+          {/* Honeypot field, hidden from view */}
           <div className={styles.honeypot}>
-            <label htmlFor="honeypot">Lämna detta fält tomt</label>
             <input
               id="honeypot"
               name="honeypot"
               type="text"
               value={formData.honeypot}
               onChange={handleChange}
+              placeholder=""
+              aria-hidden="true"
             />
           </div>
 
@@ -144,6 +147,7 @@ const CallToAction = () => {
         </div>
         <p className={styles.contactInfo}>E-post: joyrudqvist@gmail.com | Telefon: 012-345 6789</p>
       </div>
+      <div className={styles.slantedRightBottom}></div>
     </section>
   );
 };
