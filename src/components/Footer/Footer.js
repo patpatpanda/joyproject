@@ -1,6 +1,7 @@
 // src/components/Footer/Footer.js
 "use client";
 
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -14,11 +15,19 @@ export default function Footer() {
 
         <div className={styles.linksSection}>
           <h3 className={styles.sectionTitle}>Snabbnavigering</h3>
-          <ul className={styles.linkList}> {/* Lokal klass för ul */}
-            <li className={styles.linkItem}><a href="#home" className={styles.link}>Hem</a></li>
-            <li className={styles.linkItem}><a href="#services" className={styles.link}>Tjänster</a></li>
-            <li className={styles.linkItem}><a href="#destinations" className={styles.link}>Destinationer</a></li>
-            <li className={styles.linkItem}><a href="#contact" className={styles.link}>Kontakt</a></li>
+          <ul className={styles.linkList}>
+            <li className={styles.linkItem}>
+              <Link href="/" className={styles.link}>Hem</Link>
+            </li>
+            <li className={styles.linkItem}>
+              <Link href="/services" className={styles.link}>Tjänster</Link>
+            </li>
+            <li className={styles.linkItem}>
+              <Link href="/destination" className={styles.link}>Destinationer</Link>
+            </li>
+            <li className={styles.linkItem}>
+              <Link href="/#contact" className={styles.link}>Kontakt</Link>
+            </li>
           </ul>
         </div>
 
@@ -32,9 +41,9 @@ export default function Footer() {
         <div className={styles.socialSection}>
           <h3 className={styles.sectionTitle}>Följ oss</h3>
           <div className={styles.socialIcons}>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>Instagram</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>Twitter</a>
           </div>
         </div>
       </div>

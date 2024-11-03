@@ -8,8 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #6B7754;
+  background-color: rgba(245, 245, 240, 0.9); /* Light beige */
+  color: var(--secondary-color); /* Dark green */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 10;
   padding: 0 2rem;
@@ -31,7 +31,7 @@
 .logoText {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #6B7754;
+  color: var(--primary-color); /* Dark green */
   font-family: 'Playfair Display', serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -44,7 +44,7 @@
 }
 
 .nav a {
-  color: #4A4A48;
+  color: var(--text-color); /* Dark grey */
   font-weight: 500;
   text-decoration: none;
   position: relative;
@@ -59,7 +59,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #6B7754;
+  background-color: var(--primary-color); /* Dark green */
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: bottom right;
@@ -78,9 +78,9 @@
 .dropdownMenu {
   display: none;
   position: absolute;
-  top: 100%; /* Placera under "Destinationer" */
+  top: 100%;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(245, 245, 240, 0.95); /* Light beige */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   padding: 0.5rem 0;
   list-style: none;
@@ -90,7 +90,7 @@
 }
 
 .dropdown:hover .dropdownMenu {
-  display: block; /* Visa menyn vid hover */
+  display: block;
 }
 
 .dropdownMenu li {
@@ -98,33 +98,37 @@
 }
 
 .dropdownMenu li a {
-  color: #4A4A48;
+  color: var(--text-color); /* Dark grey */
   text-decoration: none;
   display: block;
   font-weight: 400;
 }
 
 .dropdownMenu li a:hover {
-  background-color: #f0f0f0;
-  color: #000;
+  background-color: var(--primary-color); /* Dark green */
+  color: #fff; /* White text */
 }
 
-/* Mobila enheter */
+/* Mobile-specific styles */
 .menuButton {
   display: none;
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: #4A4A48;
+  color: var(--text-color); /* Dark grey */
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
 .menuButton:hover {
   transform: scale(1.1);
-  color: #A89C8A;
+  color: var(--accent-color); /* Golden sand */
 }
+/* src/components/Header/Header.module.css */
 
+/* Other styles remain unchanged */
+
+/* Mobile-specific styles */
 @media (max-width: 768px) {
   .menuButton {
     display: block;
@@ -142,24 +146,51 @@
     display: none;
     flex-direction: column;
     gap: 1.2rem;
-    position: absolute;
-    top: 80px;
-    right: 1rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    padding: 1rem;
-    border-radius: 8px;
-    width: 220px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Dark background for mobile menu */
+    padding: 2rem;
+    width: 250px;
+    z-index: 10;
+    color: #fff; /* White text for mobile menu */
   }
 
   .navOpen {
     display: flex;
   }
 
-  /* För dropdown i mobilvisning */
+  .nav a,
+  .dropdownMenu li a {
+    color: #f7f7f7; /* Light grey for better contrast on dark background */
+  }
+
+  .nav a:hover,
+  .dropdownMenu li a:hover {
+    color: var(--accent-color); /* Golden sand */
+    background: none;
+  }
+
+  /* Adjust dropdown styling within mobile menu */
   .dropdownMenu {
     position: static;
     box-shadow: none;
     padding: 0;
+    background-color: rgba(0, 0, 0, 0.95); /* Match background with mobile menu */
+    color: #fff; /* White text color */
+  }
+
+  .dropdownMenu li {
+    padding: 0.5rem 0;
+  }
+
+  .dropdownMenu li a {
+    color: #f7f7f7; /* Light grey for dropdown links */
+  }
+
+  .dropdownMenu li a:hover {
+    color: var(--accent-color); /* Golden sand on hover */
+    background: none;
   }
 }

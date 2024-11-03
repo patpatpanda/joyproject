@@ -1,0 +1,171 @@
+/* src/app/destination/Destinations.module.css */
+
+.destinations {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-radius: 12px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.title {
+  font-size: 2.7rem;
+  color: #6B7754;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.title:hover {
+  color: #8B9C7B;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #4A4A48;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Ny stil för tipssektionen */
+.tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.tip {
+  background: linear-gradient(to right, #ffffff, #f7f7f7);
+  padding: 2.5rem 2rem;
+  border-left: 5px solid #A89C8A;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.tip:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid #FFD700;
+  background: linear-gradient(120deg, #f8f9fa, #ffffff);
+}
+
+.tip::before {
+  content: "✓";
+  font-size: 1.8rem;
+  color: #A89C8A;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.tip h3 {
+  font-size: 1.3rem;
+  color: #6B7754;
+  margin: 1rem 0 0.5rem;
+  padding-left: 2rem;
+}
+
+.tip p {
+  font-size: 1rem;
+  color: #4A4A48;
+  line-height: 1.6;
+  padding-left: 2rem;
+}
+
+/* Stilar för destinationssektionen */
+.destinationsTitle {
+  font-size: 2.3rem;
+  color: #6B7754;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+}
+
+.destinationsTitle:hover {
+  color: #8B9C7B;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+  height: 400px;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  border: 2px solid #FFD700;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.cardContent {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  color: #6B7754;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardTitle {
+  color: #8B9C7B;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #4A4A48;
+  line-height: 1.6;
+}
