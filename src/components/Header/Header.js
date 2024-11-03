@@ -40,6 +40,7 @@ export default function Header() {
           </div>
 
           <Link href="/#contact" onClick={closeMenu}>Kontakt</Link>
+          <Link href="/blog" onClick={closeMenu}>Blog</Link>
         </nav>
 
         <button className={styles.menuButton} onClick={toggleMenu}>
