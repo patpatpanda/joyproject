@@ -30,6 +30,9 @@
   bottom: -35px;
   transform: skewY(5deg); /* Opposite angle for bottom */
 }
+.honeypot{
+  display: none;
+  }
 
 .sectionTitle {
   font-size: 2.6rem;
@@ -138,4 +141,40 @@
   color: #666;
   margin-top: 1.2rem;
   font-style: italic;
+}
+/* Styles for the form submission status message */
+/* Styles for the form submission status message */
+.formStatus {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #6b7754; /* Theme green */
+  color: #ffffff;
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeInOutPopup 4s ease-in-out forwards;
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Fade-in and fade-out keyframes */
+@keyframes fadeInOutPopup {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  10%, 90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

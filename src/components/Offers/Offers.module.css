@@ -1,105 +1,94 @@
+/* Main Offers Section */
 .offers {
   padding: 4rem 2rem;
   background-color: #f7f7f7;
   text-align: center;
-  position: relative;
 }
 
 .title {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: #333;
   margin-bottom: 2rem;
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
+  border-bottom: 3px solid var(--primary-color); /* Green underline accent */
+  display: inline-block;
+  padding-bottom: 0.5rem;
 }
 
-.carouselContainer {
+.grid {
   display: flex;
-  align-items: center;
+  gap: 1.5rem;
   justify-content: center;
-  position: relative;
+  flex-wrap: wrap;
 }
 
+/* Card Styling */
 .card {
   position: relative;
-  width: 600px;
-  max-width: 100%;
-  border-radius: 12px;
+  width: 400px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   text-align: left;
-  transition: transform 0.5s ease;
+  border: 2px solid var(--primary-color); /* Green border around card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .mediaContainer {
-  height: 300px;
+  height: 180px;
   overflow: hidden;
-  position: relative;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 3px solid var(--primary-color); /* Green separator under media */
 }
 
 .media {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px 12px 0 0;
 }
 
+/* Content Section */
 .content {
   padding: 1.5rem;
-  position: relative;
 }
 
 .offerName {
-  font-size: 1.8rem;
-  color: #333;
-  font-weight: bold;
+  font-size: 1.6rem;
+  color: var(--primary-color); /* Green color for offer names */
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 .description {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
+/* Button Styling */
 .button {
   display: inline-block;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: bold;
   color: #ffffff;
-  background-color: #a89c8a;
-  border-radius: 25px;
+  background-color: var(--primary-color); /* Green button background */
+  border: none;
+  border-radius: 50px;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-  background-color: #8c8577;
-  transform: scale(1.05);
-}
-
-.prevButton,
-.nextButton {
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  color: #a89c8a;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.prevButton:hover,
-.nextButton:hover {
-  color: #8c8577;
-  transform: scale(1.1);
-}
-
-.prevButton {
-  margin-right: 1rem;
-}
-
-.nextButton {
-  margin-left: 1rem;
+  background-color: #4A5A39; /* Darker green on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

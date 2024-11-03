@@ -30,7 +30,7 @@ const CallToAction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Skickar...");
-
+  
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -39,17 +39,23 @@ const CallToAction = () => {
         },
         body: JSON.stringify({ ...formData, formLoadedAt }),
       });
-
+  
       if (response.ok) {
         setStatus("Tack! Ditt meddelande har skickats.");
         setFormData({ email: "", subject: "", message: "", honeypot: "" });
+  
+        // Clear the status message after 4 seconds
+        setTimeout(() => setStatus(""), 4000);
       } else {
         setStatus("Något gick fel. Försök igen senare.");
+        setTimeout(() => setStatus(""), 4000);
       }
     } catch (error) {
       setStatus("Något gick fel. Försök igen senare.");
+      setTimeout(() => setStatus(""), 4000);
     }
   };
+  
 
   return (
     <section id="contact" className={styles.contactSection}>
