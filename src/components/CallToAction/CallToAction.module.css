@@ -9,6 +9,7 @@
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  margin-top: 50px;
 }
 
 .contactSection:hover {
@@ -53,7 +54,7 @@
   margin-bottom: 0.25rem;
   font-weight: bold;
 }
-
+.honeypot{display: none;}
 .formInput {
   padding: 0.75rem;
   font-size: 1rem;

@@ -56,7 +56,7 @@ const Destinations = () => {
       name: "Österrike",
       description: "Njut av Alpernas hisnande skönhet, skidåkning och rik kultur i Österrike.",
       image: "/images/österike.jpg",
-      link: "/destination/austria"
+      link: "/destination/Austria"
     },
   ];
 

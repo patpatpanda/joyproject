@@ -1,29 +1,45 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    if (menuOpen) setDropdownOpen(false);
   };
 
   const toggleDropdown = () => {
-    if (dropdownOpen) {
-      closeMenu(); // Om dropdown är öppen, stäng den
-    } else {
-      setDropdownOpen(true); // Annars, öppna dropdown
-    }
+    setDropdownOpen(!dropdownOpen);
+    if (menuOpen) closeMenu(); // Stäng hela menyn om toggle-menyn är öppen
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
     setDropdownOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !menuOpen
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <header className={styles.header}>
@@ -33,7 +49,10 @@ export default function Header() {
         </div>
 
         {/* Stäng-knapp endast när menyn är öppen */}
-        <button className={`${styles.menuButton} ${menuOpen ? styles.closeButton : ''}`} onClick={toggleMenu}>
+        <button
+          className={`${styles.menuButton} ${menuOpen ? styles.closeButton : ''}`}
+          onClick={toggleMenu}
+        >
           {menuOpen ? '✕' : '☰'}
         </button>
 
@@ -41,14 +60,14 @@ export default function Header() {
           <Link href="/" onClick={closeMenu}>Hem</Link>
           <Link href="/services" onClick={closeMenu}>Tjänster</Link>
 
-          <div className={styles.dropdown} onClick={toggleDropdown}>
-            <Link href="/destination" className={styles.dropdownTitle} onClick={closeMenu}>
+          <div className={styles.dropdown} ref={dropdownRef}>
+            <Link href="/destination" className={styles.dropdownTitle} onClick={toggleDropdown}>
               Destinationer
             </Link>
             <ul className={`${styles.dropdownMenu} ${dropdownOpen ? styles.dropdownMenuOpen : ''}`}>
               <li><Link href="/destination/italy" onClick={closeMenu}>Italien</Link></li>
               <li><Link href="/destination/norway" onClick={closeMenu}>Norge</Link></li>
-              <li><Link href="/destination/austria" onClick={closeMenu}>Österrike</Link></li>
+              <li><Link href="/destination/Austria" onClick={closeMenu}>Österrike</Link></li>
             </ul>
           </div>
 
