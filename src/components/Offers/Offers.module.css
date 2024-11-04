@@ -44,26 +44,27 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Container for all offer cards */
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
 .card {
-  position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 300px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   text-align: left;
-  height: 600px;
-  animation: fade 1s ease-in-out;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  height: auto;
 }
 
 .mediaContainer {
-  height: 300px;
+  height: 200px;
   overflow: hidden;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -76,12 +77,12 @@
 }
 
 .content {
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
 }
 
 .offerName {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #4A5A39;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -89,7 +90,7 @@
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #666;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -97,8 +98,8 @@
 
 /* Button Styling */
 .button {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #ffffff;
   background-color: #4A5A39;
@@ -115,9 +116,49 @@
 }
 
 @media (max-width: 768px) {
-  .card {
-    width: 100%;
-    max-width: 400px;
-    height: 700px;
+  .cardContainer {
+    flex-direction: column;
+    align-items: center;
   }
+
+  .card {
+    max-width: 100%;
+  }
+}
+/* För att få korten att ha samma storlek */
+.card {
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  text-align: left;
+  height: 450px; /* Fast höjd för korten */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  padding: 1.5rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Begränsa textens höjd och trunkera överflödig text */
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-height: 4.8em; /* Begränsa höjden för att passa tre rader text */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }

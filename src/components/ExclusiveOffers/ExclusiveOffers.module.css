@@ -1,80 +1,63 @@
+/* Main section */
 .exclusiveOffers {
-  position: relative;
-  background-color: #f5f5f5;
   padding: 4rem 2rem;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Lutande övergång */
-.slantedTop, .slantedBottom {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: inherit;
-}
-
-.slantedTop {
-  top: -25px;
-  transform: skewY(-3deg);
-  background-color: #f0f0f0;
-}
-
-.slantedBottom {
-  bottom: -25px;
-  transform: skewY(3deg);
-  background-color: #6B7754;
-}
-
-.title {
-  font-size: 2.8rem;
-  color: #333;
-  margin-bottom: 3rem;
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  background-color: #f5f5f5;
 }
 
-/* Resten av dina stilar för .offerGrid, .offerCard etc. */
 .offerGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   justify-items: center;
 }
 
+/* Styling for each offer card */
 .offerCard {
   width: 100%;
   max-width: 300px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
   text-align: left;
-}
-
-.offerCard:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
 }
 
 .offerImage {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .offerTitle {
   font-size: 1.5rem;
-  color: #333;
-  margin: 1rem 0 0.5rem;
-  padding: 0 1rem;
+  color: #4A5A39;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
 }
 
+/* Consistent description height */
 .offerDescription {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #666;
   line-height: 1.6;
-  padding: 0 1rem 1.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1008px) {
+  .offerGrid {
+    grid-template-columns: 1fr;
+  }
 }

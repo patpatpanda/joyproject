@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from 'react';
 import styles from "./Offers.module.css";
 
 export default function Offers() {
@@ -21,44 +20,33 @@ export default function Offers() {
     },
   ];
 
-  const [currentOffer, setCurrentOffer] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentOffer((prev) => (prev + 1) % offers.length);
-    }, 7000);
-    return () => clearInterval(interval);
-  }, [offers.length]);
-
-  const offer = offers[currentOffer];
-
   return (
     <section className={styles.offers}>
-      {/* Lutande övergång (top) */}
       <div className={styles.slantedTop}></div>
-
       <h2 className={styles.title}>Exklusiva Erbjudanden</h2>
-      <div className={styles.card}>
-        <div className={styles.mediaContainer}>
-          {offer.video ? (
-            <video src={offer.video} className={styles.media} autoPlay loop muted playsInline />
-          ) : (
-            <img src={offer.image} alt={offer.name} className={styles.media} />
-          )}
-        </div>
-        <div className={styles.content}>
-          <h3 className={styles.offerName}>{offer.name}</h3>
-          <p className={styles.description}>{offer.description}</p>
-          <button
-            className={styles.button}
-            onClick={() => (window.location.href = '/services#exklusiva-erbjudanden')}
-          >
-            Visa Alla
-          </button>
-        </div>
+      <div className={styles.cardContainer}>
+        {offers.map((offer, index) => (
+          <div className={styles.card} key={index}>
+            <div className={styles.mediaContainer}>
+              {offer.video ? (
+                <video src={offer.video} className={styles.media} autoPlay loop muted playsInline />
+              ) : (
+                <img src={offer.image} alt={offer.name} className={styles.media} />
+              )}
+            </div>
+            <div className={styles.content}>
+              <h3 className={styles.offerName}>{offer.name}</h3>
+              <p className={styles.description}>{offer.description}</p>
+              <button
+                className={styles.button}
+                onClick={() => (window.location.href = '/services#exklusiva-erbjudanden')}
+              >
+                Visa Alla
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-
-      {/* Lutande övergång (bottom) */}
       <div className={styles.slantedBottom}></div>
     </section>
   );

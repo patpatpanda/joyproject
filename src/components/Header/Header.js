@@ -45,7 +45,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
-          <span className={styles.logoText}>JOY Destinations</span>
+          <span className={styles.logoText}> Destinations of Joy</span>
         </div>
 
         {/* Stäng-knapp endast när menyn är öppen */}
