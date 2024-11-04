@@ -1,6 +1,4 @@
-// src/components/CallToAction/CallToAction.js
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import styles from "./CallToAction.module.css";
@@ -12,11 +10,10 @@ const CallToAction = () => {
     message: "",
     honeypot: "",
   });
-  const [formLoadedAt, setFormLoadedAt] = useState(Date.now());
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    setFormLoadedAt(Date.now());
+    setStatus("");
   }, []);
 
   const handleChange = (e) => {
@@ -30,21 +27,17 @@ const CallToAction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Skickar...");
-  
+
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...formData, formLoadedAt }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         setStatus("Tack! Ditt meddelande har skickats.");
         setFormData({ email: "", subject: "", message: "", honeypot: "" });
-  
-        // Clear the status message after 4 seconds
         setTimeout(() => setStatus(""), 4000);
       } else {
         setStatus("Något gick fel. Försök igen senare.");
@@ -55,22 +48,29 @@ const CallToAction = () => {
       setTimeout(() => setStatus(""), 4000);
     }
   };
-  
 
   return (
+    
     <section id="contact" className={styles.contactSection}>
-      <div className={styles.slantedRightTop}></div>
+       
+      <div className={styles.dividerContainer}>
+        <hr className={styles.dividerLine} />
+        <span className={styles.dividerIcon}>✉️</span>
+        <hr className={styles.dividerLine} />
+      </div>
+  
       <h2 className={styles.sectionTitle}>Kontakta oss</h2>
       <p className={styles.sectionSubtitle}>
-        Vi ser fram emot att höra av dig! Använd gärna formuläret nedan eller ring oss för ett personligt samtal.
+        Vi ser fram emot att höra av dig! Fyll i formuläret nedan eller ring oss för ett personligt samtal.
       </p>
+      {/* Resten av formuläret */}
+    
+  
 
       <div className={styles.formContainer}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.formLabel}>
-              Din e-postadress
-            </label>
+            <label htmlFor="email" className={styles.formLabel}>Din e-postadress</label>
             <input
               id="email"
               name="email"
@@ -83,9 +83,7 @@ const CallToAction = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="subject" className={styles.formLabel}>
-              Ämne
-            </label>
+            <label htmlFor="subject" className={styles.formLabel}>Ämne</label>
             <input
               id="subject"
               name="subject"
@@ -98,9 +96,7 @@ const CallToAction = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="message" className={styles.formLabel}>
-              Meddelande
-            </label>
+            <label htmlFor="message" className={styles.formLabel}>Meddelande</label>
             <textarea
               id="message"
               name="message"
@@ -112,7 +108,6 @@ const CallToAction = () => {
             ></textarea>
           </div>
 
-          {/* Honeypot field, hidden from view */}
           <div className={styles.honeypot}>
             <input
               id="honeypot"
@@ -120,16 +115,11 @@ const CallToAction = () => {
               type="text"
               value={formData.honeypot}
               onChange={handleChange}
-              placeholder=""
               aria-hidden="true"
             />
           </div>
 
-          <div className={styles.formGroup}>
-            <button type="submit" className={styles.formButton}>
-              Skicka meddelande
-            </button>
-          </div>
+          <button type="submit" className={styles.formButton}>Skicka meddelande</button>
         </form>
 
         {status && <p className={styles.formStatus}>{status}</p>}
@@ -138,22 +128,13 @@ const CallToAction = () => {
       <div className={styles.socialMediaSection}>
         <h3 className={styles.socialTitle}>Följ oss på sociala medier</h3>
         <div className={styles.socialIcons}>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-            <FaFacebook />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-            <FaInstagram />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-            <FaTwitter />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-            <FaLinkedin />
-          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaFacebook /></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaInstagram /></a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaTwitter /></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaLinkedin /></a>
         </div>
         <p className={styles.contactInfo}>E-post: joyrudqvist@gmail.com | Telefon: 012-345 6789</p>
       </div>
-      <div className={styles.slantedRightBottom}></div>
     </section>
   );
 };

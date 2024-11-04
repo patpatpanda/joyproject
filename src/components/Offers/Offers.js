@@ -23,7 +23,6 @@ export default function Offers() {
 
   const [currentOffer, setCurrentOffer] = useState(0);
 
-  // Cyklar genom erbjudandena var 7:e sekund
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentOffer((prev) => (prev + 1) % offers.length);
@@ -35,6 +34,9 @@ export default function Offers() {
 
   return (
     <section className={styles.offers}>
+      {/* Lutande övergång (top) */}
+      <div className={styles.slantedTop}></div>
+
       <h2 className={styles.title}>Exklusiva Erbjudanden</h2>
       <div className={styles.card}>
         <div className={styles.mediaContainer}>
@@ -48,14 +50,16 @@ export default function Offers() {
           <h3 className={styles.offerName}>{offer.name}</h3>
           <p className={styles.description}>{offer.description}</p>
           <button
-  className={styles.button}
-  onClick={() => (window.location.href = '/services#exklusiva-erbjudanden')}
->
-  Visa Alla
-</button>
-
+            className={styles.button}
+            onClick={() => (window.location.href = '/services#exklusiva-erbjudanden')}
+          >
+            Visa Alla
+          </button>
         </div>
       </div>
+
+      {/* Lutande övergång (bottom) */}
+      <div className={styles.slantedBottom}></div>
     </section>
   );
 }

@@ -1,6 +1,6 @@
-// src/app/destination/page.js
 "use client";
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Destinations.module.css';
 import { FaBullseye, FaMoneyBillWave, FaCloudSun, FaLandmark, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
@@ -55,48 +55,29 @@ const Destinations = () => {
     {
       name: "Österrike",
       description: "Njut av Alpernas hisnande skönhet, skidåkning och rik kultur i Österrike.",
-
       image: "/images/österike.jpg",
       link: "/destination/austria"
-    },
-    {
-      name: "Italien",
-      description: "Utforska soliga stränder, fantastisk mat och historiska sevärdheter i Italien.",
-      image: "/images/italy.jpg",
-      link: "/destination/italy"
-    },
-    {
-      name: "Italien",
-      description: "Utforska soliga stränder, fantastisk mat och historiska sevärdheter i Italien.",
-      image: "/images/italy.jpg",
-      link: "/destination/italy"
-    },
-    {
-      name: "Italien",
-      description: "Utforska soliga stränder, fantastisk mat och historiska sevärdheter i Italien.",
-      image: "/images/italy.jpg",
-      link: "/destination/italy"
     },
   ];
 
   return (
     <section className={styles.destinations}>
-   <div className={styles.divider}>
-  <h3 className={styles.dividerTitle}>Tips för att Välja Rätt Destination</h3>
-  <p className={styles.dividerSubtitle}>
-    Tänk på vad du vill få ut av din resa – avkoppling, äventyr eller kulturupplevelser? Fundera på din budget, klimatet och vilka sevärdheter som intresserar dig mest. Med rätt planering kan du skapa en resa som uppfyller dina drömmar och mål.
-  </p>
-  <hr className={styles.dividerLine} />
-</div>
-
-      
+      <div className={styles.divider}>
+        <h3 className={`${styles.dividerTitle} ${styles.fadeInSmooth}`} style={{ animationDelay: '0.1s' }}>
+          Tips för att Välja Rätt Destination
+        </h3>
+        <p className={`${styles.dividerSubtitle} ${styles.fadeInSmooth}`} style={{ animationDelay: '0.3s' }}>
+          Tänk på vad du vill få ut av din resa – avkoppling, äventyr eller kulturupplevelser? Fundera på din budget, klimatet och vilka sevärdheter som intresserar dig mest. Med rätt planering kan du skapa en resa som uppfyller dina drömmar och mål.
+        </p>
+        <hr className={`${styles.dividerLine} ${styles.fadeInSmooth}`} style={{ animationDelay: '0.5s' }} />
+      </div>
 
       {/* Tips Section */}
       <div className={styles.tips}>
         {tips.map((tip, index) => {
           const IconComponent = tip.icon;
           return (
-            <div key={index} className={styles.tip}>
+            <div key={index} className={`${styles.tip} ${styles.fadeInSmooth}`} style={{ animationDelay: `${0.2 * index + 0.5}s` }}>
               <IconComponent className={styles.tipIcon} />
               <div className={styles.tipContent}>
                 <h3>{tip.title}</h3>
@@ -106,17 +87,22 @@ const Destinations = () => {
           );
         })}
       </div>
-      <div className={styles.divider}>
-  <h3 className={styles.dividerTitle}>Upptäck och Inspireras</h3>
-  <p className={styles.dividerSubtitle}>Utforska våra handplockade destinationer för en oförglömlig upplevelse.</p>
-  <hr className={styles.dividerLine} />
-</div>
-      {/* Destination Cards Section */}
 
+      <div className={styles.divider}>
+        <h3 className={`${styles.dividerTitle} ${styles.fadeInSmooth}`} style={{ animationDelay: '1.2s' }}>
+          Upptäck och Inspireras
+        </h3>
+        <p className={`${styles.dividerSubtitle} ${styles.fadeInSmooth}`} style={{ animationDelay: '1.4s' }}>
+          Utforska våra handplockade destinationer för en oförglömlig upplevelse.
+        </p>
+        <hr className={`${styles.dividerLine} ${styles.fadeInSmooth}`} style={{ animationDelay: '1.6s' }} />
+      </div>
+
+      {/* Destination Cards Section */}
       <div className={styles.cardsContainer}>
         {destinations.map((destination, index) => (
           <Link href={destination.link} key={index}>
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.fadeInSmooth}`} style={{ animationDelay: `${0.2 * index + 1.8}s` }}>
               <img src={destination.image} alt={destination.name} className={styles.cardImage} />
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{destination.name}</h3>

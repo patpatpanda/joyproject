@@ -170,3 +170,35 @@
   border: none;
   border-radius: 2px;
 }
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elegant Fade-in Animation */
+@keyframes fadeInSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.fadeInSmooth {
+  opacity: 0;
+  animation: fadeInSmooth 1.5s ease forwards;
+}
