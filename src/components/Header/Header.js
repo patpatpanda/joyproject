@@ -1,4 +1,3 @@
-// src/components/Header/Header.js
 "use client";
 
 import { useState } from 'react';
@@ -14,7 +13,11 @@ export default function Header() {
   };
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    if (dropdownOpen) {
+      closeMenu(); // Om dropdown är öppen, stäng den
+    } else {
+      setDropdownOpen(true); // Annars, öppna dropdown
+    }
   };
 
   const closeMenu = () => {
@@ -39,11 +42,13 @@ export default function Header() {
           <Link href="/services" onClick={closeMenu}>Tjänster</Link>
 
           <div className={styles.dropdown} onClick={toggleDropdown}>
-            <Link href="/destination" className={styles.dropdownTitle}>Destinationer</Link>
+            <Link href="/destination" className={styles.dropdownTitle} onClick={closeMenu}>
+              Destinationer
+            </Link>
             <ul className={`${styles.dropdownMenu} ${dropdownOpen ? styles.dropdownMenuOpen : ''}`}>
               <li><Link href="/destination/italy" onClick={closeMenu}>Italien</Link></li>
               <li><Link href="/destination/norway" onClick={closeMenu}>Norge</Link></li>
-              <li><Link href="/destination/Austria" onClick={closeMenu}>Österrike</Link></li>
+              <li><Link href="/destination/austria" onClick={closeMenu}>Österrike</Link></li>
             </ul>
           </div>
 

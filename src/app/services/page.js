@@ -34,7 +34,7 @@ export default function Services() {
   return (
     <section className={styles.servicesSection}>
      
-      
+     <h1 className={styles.elegantTitle}>Tjänster</h1>
       {/* Sektion 1: Tjänster */}
       <div id="Expertise" className={styles.serviceContainer}>
         {services.map((service, index) => (

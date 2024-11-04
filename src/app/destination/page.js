@@ -54,7 +54,8 @@ const Destinations = () => {
     },
     {
       name: "Österrike",
-      description: "Njut av Alpernas skönhet, skidåkning och kultur i Österrike.",
+      description: "Njut av Alpernas hisnande skönhet, skidåkning och rik kultur i Österrike.",
+
       image: "/images/österike.jpg",
       link: "/destination/austria"
     },
@@ -80,7 +81,14 @@ const Destinations = () => {
 
   return (
     <section className={styles.destinations}>
-      <h2 className={styles.title}>Välj Rätt Destination</h2>
+   <div className={styles.divider}>
+  <h3 className={styles.dividerTitle}>Tips för att Välja Rätt Destination</h3>
+  <p className={styles.dividerSubtitle}>
+    Tänk på vad du vill få ut av din resa – avkoppling, äventyr eller kulturupplevelser? Fundera på din budget, klimatet och vilka sevärdheter som intresserar dig mest. Med rätt planering kan du skapa en resa som uppfyller dina drömmar och mål.
+  </p>
+  <hr className={styles.dividerLine} />
+</div>
+
       
 
       {/* Tips Section */}
@@ -104,7 +112,7 @@ const Destinations = () => {
   <hr className={styles.dividerLine} />
 </div>
       {/* Destination Cards Section */}
-      <h2 className={styles.destinationsTitle}>Våra Destinationer</h2>
+
       <div className={styles.cardsContainer}>
         {destinations.map((destination, index) => (
           <Link href={destination.link} key={index}>
