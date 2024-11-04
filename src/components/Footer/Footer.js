@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.logoSection}>
-          <h2 className={styles.logo}>JOY Destinations</h2>
+          <h2 className={styles.logo}>Destinations of Joy</h2>
           <p className={styles.tagline}>Upptäck världen med oss.</p>
         </div>
 
