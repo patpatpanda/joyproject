@@ -1,6 +1,4 @@
-// src/components/Header/Header.js
 "use client";
-
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
@@ -12,7 +10,6 @@ export default function Header() {
     setMenuOpen(!menuOpen);
   };
 
-  // Stänger menyn när en länk klickas
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -26,9 +23,14 @@ export default function Header() {
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
           <Link href="/" onClick={closeMenu}>Hem</Link>
-          <Link href="/services" onClick={closeMenu}>Tjänster</Link>
           
-          {/* Updated Dropdown for Destinationer */}
+          {/* Tjänster-flikarna */}
+          <div className={styles.dropdown}>
+            <Link href="/services" onClick={closeMenu} className={styles.dropdownTitle}>Tjänster</Link>
+           
+          </div>
+          
+          {/* Destinationer-dropdown */}
           <div className={styles.dropdown}>
             <Link href="/destination" onClick={closeMenu} className={styles.dropdownTitle}>Destinationer</Link>
             <ul className={styles.dropdownMenu}>

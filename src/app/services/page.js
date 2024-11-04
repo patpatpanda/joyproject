@@ -1,49 +1,62 @@
-// src/app/services/Services.js
 "use client";
 import { useEffect } from 'react';
 import styles from './Services.module.css';
+import { FaUsers, FaPlane, FaGlobe } from 'react-icons/fa';
 import ExclusiveExperiences from '../../components/ExclusiveExperiences/ExclusiveExperiences';
+import ExclusiveOffers from '../../components/ExclusiveOffers/ExclusiveOffers';
 
 export default function Services() {
   const services = [
     {
       title: "Rådgivning för Familjeresor",
-      description: "Att planera en resa kan vara överväldigande, och det är därför du behöver en/ett Resebyrå som du kan lita på. Med vår(t) Rådgivning för familjeresor kan du känna dig trygg i att vi vägleder dig genom varje steg på vägen.",
-      icon: "family",
+      description: "Vi erbjuder pålitlig rådgivning för familjeresor, så att du kan känna dig trygg i att varje steg är planerat för en minnesvärd upplevelse.",
+      icon: <FaUsers />,
     },
     {
       title: "Reseplanering",
-      description: "Oavsett vilken typ av resa du har i åtanke så har vi resurserna och expertisen som krävs för att skapa den perfekta resan. Se till att du bokar i förväg. Vår(t) Reseplanering är en av de mest populära tjänsterna och platserna tar snabbt slut.",
-      icon: "planning",
+      description: "Med vår omfattande expertis skapar vi resplaner som passar alla dina behov. Perfekt för både soloäventyr och gruppresor.",
+      icon: <FaPlane />,
     },
     {
       title: "Internationell resevägledning",
-      description: "Vi har försett våra kunder med Internationell resevägledning under många år, och idag har vi den erfarenhet och expertis som krävs för att varje bokning ska bli så smidigt som möjligt. Om du har frågor får du gärna kontakta oss.",
-      icon: "globe",
+      description: "Med år av erfarenhet guidar vi våra kunder genom internationella resor med enkelhet och professionalism.",
+      icon: <FaGlobe />,
     },
   ];
 
   useEffect(() => {
-    // Dynamiskt lägg till en fördröjning per kort för att få in fade-in effekten i sekvens
     const cards = document.querySelectorAll(`.${styles.serviceCard}`);
     cards.forEach((card, index) => {
-      card.style.setProperty('--animation-delay', `${index * 0.5}s`);
+      card.style.setProperty('--animation-delay', `${index * 0.3}s`);
     });
   }, []);
 
   return (
     <section className={styles.servicesSection}>
       <h2 className={styles.title}>Våra Tjänster</h2>
-      <div className={styles.serviceContainer}>
+      
+      {/* Sektion 1: Tjänster */}
+      <div id="Expertise" className={styles.serviceContainer}>
         {services.map((service, index) => (
           <div key={index} className={styles.serviceCard}>
-            <div className={`${styles.iconContainer} ${styles[service.icon]}`}></div>
-            <h3 className={styles.cardTitle}>{service.title}</h3>
+            <div className={styles.iconContainer}>{service.icon}</div>
+            <h4 className={styles.cardTitle}>{service.title}</h4>
             <p className={styles.cardDescription}>{service.description}</p>
           </div>
         ))}
       </div>
-      <ExclusiveExperiences />
+
+      {/* Sektion 2: Exklusiva Upplevelser */}
+      <div id="exklusiva-upplevelser" className={styles.exclusiveExperiences}>
+      
+        <ExclusiveExperiences />
+      </div>
+
+      {/* Sektion 3: Exklusiva Erbjudanden */}
+      <div id="exklusiva-erbjudanden" className={styles.exclusiveOffers}>
+        
+        <ExclusiveOffers />
+      </div>
     </section>
   );
 }

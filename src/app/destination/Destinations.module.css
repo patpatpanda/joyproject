@@ -1,5 +1,3 @@
-/* src/app/destination/Destinations.module.css */
-
 .destinations {
   padding: 4rem 2rem;
   text-align: center;
@@ -67,7 +65,7 @@
 .tip:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-left: 5px solid #FFD700;
+  border-left: 5px solid #4A4A48;
   background: linear-gradient(120deg, #f8f9fa, #ffffff);
 }
 
@@ -114,6 +112,7 @@
   gap: 1.5rem;
   justify-content: center;
   margin-top: 100px;
+  flex-wrap: wrap; /* Gör att korten radbryts på mindre skärmar */
 }
 
 .card {
@@ -131,7 +130,7 @@
 .card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  border: 2px solid #FFD700;
+  border: 2px solid #4A4A48;
 }
 
 .cardImage {
@@ -168,4 +167,80 @@
   font-size: 1rem;
   color: #4A4A48;
   line-height: 1.6;
+}
+
+/* Responsive Design for Medium Screens */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .tip {
+    padding: 2rem 1.5rem;
+  }
+
+  .tip h3 {
+    font-size: 1.2rem;
+  }
+
+  .tip p {
+    font-size: 0.95rem;
+  }
+
+  .cardsContainer {
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%; /* Gör korten bredare på mindre skärmar */
+  }
+
+  .cardTitle {
+    font-size: 1.4rem;
+  }
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .tip {
+    padding: 1.5rem 1rem;
+  }
+
+  .tip h3 {
+    font-size: 1.1rem;
+  }
+
+  .tip p {
+    font-size: 0.9rem;
+  }
+
+  .cardsContainer {
+    margin-top: 50px;
+  }
+
+  .card {
+    width: 100%; /* Använd 100% bredd på mycket små skärmar */
+    height: auto; /* Justera höjden automatiskt för små skärmar */
+  }
+
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .cardDescription {
+    font-size: 0.9rem;
+  }
 }

@@ -1,5 +1,3 @@
-/* src/components/Header/Header.module.css */
-
 .header {
   position: fixed;
   top: 0;
@@ -8,11 +6,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(245, 245, 240, 0.9); /* Light beige */
-  color: var(--secondary-color); /* Dark green */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(34, 34, 34, 0.9); /* Semi-transparent mörk */
+  color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10;
   padding: 0 2rem;
+  backdrop-filter: blur(8px); /* Lätt glaseffekt */
 }
 
 .headerContainer {
@@ -31,10 +30,11 @@
 .logoText {
   font-size: 1.8rem;
   font-weight: bold;
-  color: var(--primary-color); /* Dark green */
+  color: #fff; /* Gyllene accent */
   font-family: 'Playfair Display', serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 .nav {
@@ -44,7 +44,7 @@
 }
 
 .nav a {
-  color: var(--text-color); /* Dark grey */
+  color: #e0e0e0;
   font-weight: 500;
   text-decoration: none;
   position: relative;
@@ -59,7 +59,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--primary-color); /* Dark green */
+  background-color: #FFD700;
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: bottom right;
@@ -80,11 +80,11 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(245, 245, 240, 0.95); /* Light beige */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  background-color: rgba(50, 50, 50, 0.95); /* Mörkare bakgrund */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 0.5rem 0;
   list-style: none;
-  border-radius: 4px;
+  border-radius: 6px;
   min-width: 160px;
   z-index: 10;
 }
@@ -98,37 +98,34 @@
 }
 
 .dropdownMenu li a {
-  color: var(--text-color); /* Dark grey */
+  color: #e0e0e0;
   text-decoration: none;
   display: block;
   font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 .dropdownMenu li a:hover {
-  background-color: var(--primary-color); /* Dark green */
-  color: #fff; /* White text */
+  background-color: #FFD700;
+  color: #222;
 }
 
-/* Mobile-specific styles */
+/* Mobile Menu */
 .menuButton {
   display: none;
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: var(--text-color); /* Dark grey */
+  color: #f0f0f0;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
 .menuButton:hover {
   transform: scale(1.1);
-  color: var(--accent-color); /* Golden sand */
+  color: #FFD700;
 }
-/* src/components/Header/Header.module.css */
 
-/* Other styles remain unchanged */
-
-/* Mobile-specific styles */
 @media (max-width: 768px) {
   .menuButton {
     display: block;
@@ -150,11 +147,11 @@
     top: 0;
     right: 0;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95); /* Dark background for mobile menu */
+    background-color: rgba(34, 34, 34, 0.98);
     padding: 2rem;
     width: 250px;
     z-index: 10;
-    color: #fff; /* White text for mobile menu */
+    color: #ffffff;
   }
 
   .navOpen {
@@ -163,34 +160,21 @@
 
   .nav a,
   .dropdownMenu li a {
-    color: #f7f7f7; /* Light grey for better contrast on dark background */
+    color: #f7f7f7;
   }
 
   .nav a:hover,
   .dropdownMenu li a:hover {
-    color: var(--accent-color); /* Golden sand */
-    background: none;
+    color: #FFD700;
   }
 
-  /* Adjust dropdown styling within mobile menu */
   .dropdownMenu {
     position: static;
     box-shadow: none;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.95); /* Match background with mobile menu */
-    color: #fff; /* White text color */
-  }
-
-  .dropdownMenu li {
-    padding: 0.5rem 0;
   }
 
   .dropdownMenu li a {
-    color: #f7f7f7; /* Light grey for dropdown links */
-  }
-
-  .dropdownMenu li a:hover {
-    color: var(--accent-color); /* Golden sand on hover */
-    background: none;
+    color: #f7f7f7;
   }
 }

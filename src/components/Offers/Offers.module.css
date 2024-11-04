@@ -1,52 +1,48 @@
 /* Main Offers Section */
 .offers {
   padding: 4rem 2rem;
-  background-color: #f7f7f7;
+ 
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
   font-size: 2.5rem;
-  color: #333;
+  color: #4A5A39;
   margin-bottom: 2rem;
   font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  border-bottom: 3px solid var(--primary-color); /* Green underline accent */
+  font-weight: 700;
   display: inline-block;
   padding-bottom: 0.5rem;
+  border-bottom: 4px solid #8B9C7B;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.grid {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Card Styling */
 .card {
   position: relative;
-  width: 400px;
+  width: 100%;
+  width: 600px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   text-align: left;
-  border: 2px solid var(--primary-color); /* Green border around card */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 600px;
+  animation: fade 1s ease-in-out;
 }
 
-.card:hover {
-  transform: scale(1.02); /* Slight zoom effect on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .mediaContainer {
-  height: 180px;
+  height: 300px;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom: 3px solid var(--primary-color); /* Green separator under media */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .media {
@@ -55,40 +51,55 @@
   object-fit: cover;
 }
 
-/* Content Section */
 .content {
-  padding: 1.5rem;
+  padding: 2rem;
+  text-align: center;
 }
 
 .offerName {
-  font-size: 1.6rem;
-  color: var(--primary-color); /* Green color for offer names */
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  color: #4A5A39;
+  margin-bottom: 1rem;
   font-weight: bold;
+  font-family: 'Playfair Display', serif;
 }
 
 .description {
   font-size: 1rem;
   color: #666;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 /* Button Styling */
 .button {
-  display: inline-block;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: bold;
   color: #ffffff;
-  background-color: var(--primary-color); /* Green button background */
+  background-color: #4A5A39;
   border: none;
-  border-radius: 50px;
-  text-decoration: none;
+  border-radius: 25px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-  background-color: #4A5A39; /* Darker green on hover */
+  background-color: #3B4C2F;
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  .card {
+    position: relative;
+    width: 100%;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    text-align: left;
+    height: 700px;
+    animation: fade 1s ease-in-out;
+  }
 }

@@ -1,9 +1,16 @@
-// src/app/blog/page.js
-
-"use client"; // Gör detta till en klientkomponent för att använda hooks
+"use client";
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image'; // Importera Image-komponenten från Next.js
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import Modal from '../../components/Modal/Modal';
+import Toast from '../../components/Toast/Toast';
+import './blog.css';
+
+// Resterande kod för BlogPage
+
+// Resterande kod för BlogPage
+
 
 async function fetchPosts() {
   try {
@@ -12,12 +19,10 @@ async function fetchPosts() {
     });
 
     if (!res.ok) {
-      console.error('Response not OK:', res.status, res.statusText);
       throw new Error('Failed to fetch posts');
     }
 
     const posts = await res.json();
-    console.log("Fetched posts:", posts); // Bekräfta hämtade data
     return posts;
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -26,12 +31,11 @@ async function fetchPosts() {
 }
 
 const BlogPage = () => {
+  const router = useRouter();
   const [posts, setPosts] = useState([]);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [password, setPassword] = useState('');
-  const [image, setImage] = useState(null);
-  const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [postToDelete, setPostToDelete] = useState(null);
 
   useEffect(() => {
     async function loadPosts() {
@@ -41,122 +45,85 @@ const BlogPage = () => {
     loadPosts();
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('content', content);
-    formData.append('password', password);
-    if (image) {
-      formData.append('image', image);
-    }
+  const handleDelete = async (password) => {
+    if (!postToDelete) return;
 
     try {
-      const res = await fetch('https://blogapijoy.azurewebsites.net/api/posts', {
-        method: 'POST',
-        body: formData,
+      const res = await fetch(`https://blogapijoy.azurewebsites.net/api/posts/${postToDelete}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ password })
       });
 
       if (res.ok) {
-        const newPost = await res.json();
-        setPosts([newPost, ...posts]); // Lägg till det nya inlägget i listan
-        setTitle('');
-        setContent('');
-        setPassword('');
-        setImage(null);
-        setError(null);
-        alert('Post created successfully!');
+        setPosts(posts.filter(post => post.id !== postToDelete));
+        setToastMessage("Post deleted successfully.");
       } else {
         const errorMessage = await res.text();
-        setError(`Failed to create post: ${errorMessage}`);
+        alert(`Failed to delete post: ${errorMessage}`);
       }
-    } catch (err) {
-      setError(`An error occurred: ${err.message}`);
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert(`An error occurred: ${error.message}`);
+    } finally {
+      setPostToDelete(null);
     }
   };
 
+  const openDeleteModal = (postId) => {
+    setPostToDelete(postId);
+    setShowModal(true);
+  };
+
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
-      <h1>Blog Posts</h1>
+    <div className="container">
+      <h1 className="pageTitle">Blog Posts</h1>
+      <button 
+        onClick={() => router.push('/blog/create')}
+        className="createButton"
+      >
+        Nytt
+      </button>
 
-      {/* Formulär för att skapa ett nytt inlägg */}
-      <div style={{ marginBottom: '30px' }}>
-        <h2>Create a New Post</h2>
-        <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
-          <div style={{ marginBottom: '15px' }}>
-            <label>
-              Title:
-              <input
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-                style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-              />
-            </label>
-          </div>
-          <div style={{ marginBottom: '15px' }}>
-            <label>
-              Content:
-              <textarea
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                required
-                rows="5"
-                style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-              />
-            </label>
-          </div>
-          <div style={{ marginBottom: '15px' }}>
-            <label>
-              Password:
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-              />
-            </label>
-          </div>
-          <div style={{ marginBottom: '15px' }}>
-            <label>
-              Image (optional):
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-                style={{ marginTop: '5px' }}
-              />
-            </label>
-          </div>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-          <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>Create Post</button>
-        </form>
-      </div>
-
-      {/* Lista med befintliga inlägg */}
       {posts.length === 0 ? (
         <p>No posts available.</p>
       ) : (
         <ul>
           {posts.map((post) => (
-            <li key={post.id} style={{ marginBottom: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '8px' }}>
-              <h3>{post.title}</h3>
-              <p>{post.content}</p>
+            <li key={post.id} className="postItem">
+              <h3 className="postTitle">{post.title}</h3>
+              <p className="postContent">{post.content}</p>
               {post.imageUrl && (
                 <Image
-                  src={post.imageUrl} // Använd direkt URL till bilden från Blob Storage
+                  src={post.imageUrl}
                   alt={post.title}
-                  width={400} // Specificera en bredd
-                  height={300} // Specificera en höjd
-                  style={{ borderRadius: '8px', objectFit: 'cover' }}
+                  width={400}
+                  height={300}
+                  className="postImage"
                 />
               )}
-              <small>Posted on: {new Date(post.createdAt).toLocaleDateString()}</small>
+              <small className="postDate">Posted on: {new Date(post.createdAt).toLocaleDateString()}</small>
+              <button 
+                onClick={() => openDeleteModal(post.id)}
+                className="deleteButton"
+              >
+                Ta bort
+              </button>
             </li>
           ))}
         </ul>
+      )}
+
+      <Modal 
+        isOpen={showModal} 
+        onClose={() => setShowModal(false)} 
+        onSubmit={handleDelete} 
+      />
+
+      {toastMessage && (
+        <Toast message={toastMessage} onClose={() => setToastMessage('')} />
       )}
     </div>
   );
