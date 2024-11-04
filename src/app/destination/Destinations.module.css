@@ -1,9 +1,9 @@
-
 /* Container for destinations */
 .destinations {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  margin-top: 100px;
 }
 
 /* Section Titles */
@@ -34,8 +34,8 @@
 }
 
 .tip {
-  background-color: var(--accent-color);
-  color: var(--secondary-color);
+  background: var(--primary-color);
+  color: #fff;
   border-radius: 10px;
   padding: 1.5rem;
   max-width: 320px;
@@ -54,18 +54,18 @@
 
 .tipIcon {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: #fff;
   flex-shrink: 0;
 }
 
 .tipContent h3 {
   font-size: 1.3rem;
-  color: var(--primary-color);
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
 .tipContent p {
-  color: var(--text-color);
+  color: #fff;
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -78,14 +78,19 @@
   justify-content: center;
 }
 
+/* Make cards responsive and of equal height */
 .card {
   background-color: var(--secondary-color);
   border-radius: 12px;
   overflow: hidden;
   width: 300px;
+  min-height: 400px; /* Ensures all cards have a minimum height */
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Allows content to be aligned vertically */
+  justify-content: space-between; /* Evenly distributes space */
 }
 
 .card:hover {
@@ -102,6 +107,10 @@
 
 .cardContent {
   padding: 1.5rem;
+  flex-grow: 1; /* Allows card content to grow to fill space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cardTitle {
@@ -130,5 +139,34 @@
 
   .card {
     width: 100%;
+    min-height: unset; /* Removes fixed height on smaller screens */
   }
+}
+/* Divider Section */
+.divider {
+  text-align: center;
+  margin: 3rem 0; /* Avstånd ovanför och nedanför */
+  padding: 1.5rem 0;
+}
+
+.dividerTitle {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.dividerSubtitle {
+  font-size: 1rem;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.dividerLine {
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin: 0 auto;
+  border: none;
+  border-radius: 2px;
 }

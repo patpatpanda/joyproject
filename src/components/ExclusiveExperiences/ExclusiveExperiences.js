@@ -66,7 +66,7 @@ export default function ExclusiveExperiences() {
 
   return (
     <section className={styles.exclusiveExperiences}>
-      <h2 className={styles.title}>Exklusiva Upplevelser</h2>
+      
       {experiences.map((experience, index) => (
         <div
           key={index}

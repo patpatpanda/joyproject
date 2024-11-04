@@ -33,7 +33,7 @@ export default function Services() {
 
   return (
     <section className={styles.servicesSection}>
-      <h2 className={styles.title}>Våra Tjänster</h2>
+     
       
       {/* Sektion 1: Tjänster */}
       <div id="Expertise" className={styles.serviceContainer}>
@@ -45,13 +45,23 @@ export default function Services() {
           </div>
         ))}
       </div>
+     
+<div className={styles.divider}>
+  <h3 className={styles.dividerTitle}>Utforska Våra Exklusiva Upplevelser</h3>
+  <p className={styles.dividerSubtitle}>För att göra din resa extra minnesvärd, erbjuder vi unika och skräddarsydda upplevelser som du inte hittar någon annanstans.</p>
+  <hr className={styles.dividerLine} />
+</div>
 
       {/* Sektion 2: Exklusiva Upplevelser */}
       <div id="exklusiva-upplevelser" className={styles.exclusiveExperiences}>
       
         <ExclusiveExperiences />
       </div>
-
+      <div className={styles.divider}>
+  <h3 className={styles.dividerTitle}>Exklusiva Erbjudanden för Dina Drömresor</h3>
+  <p className={styles.dividerSubtitle}>"Ta del av våra handplockade erbjudanden som gör din resa ännu mer prisvärd och minnesvärd. Oavsett om du letar efter en weekendresa, ett långt äventyr eller något där emellan, erbjuder vi rabatter och specialpaket på några av världens mest fantastiska destinationer. Våra erbjudanden är tidsbegränsade och unika, så passa på att boka din drömresa med extra förmåner!"</p>
+  <hr className={styles.dividerLine} />
+</div>
       {/* Sektion 3: Exklusiva Erbjudanden */}
       <div id="exklusiva-erbjudanden" className={styles.exclusiveOffers}>
         

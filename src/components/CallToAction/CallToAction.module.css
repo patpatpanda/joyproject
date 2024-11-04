@@ -24,7 +24,7 @@
   background: url('/images/regn.jpg') center/cover no-repeat;
   z-index: -1;
   filter: blur(8px); /* Blur för extra frostad glas-look */
-  opacity: 0.6; /* Justera opaciteten för att få rätt kontrast */
+  opacity: 0.9; /* Justera opaciteten för att få rätt kontrast */
 }
 
 /* Titel */

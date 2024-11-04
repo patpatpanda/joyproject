@@ -32,7 +32,7 @@ export default function ExclusiveOffers() {
 
   return (
     <section className={styles.exclusiveOffers}>
-      <h3 className={styles.title}>Exklusiva Erbjudanden</h3>
+      
       <div className={styles.offerGrid}>
         {offers.map((offer, index) => (
           <div key={index} className={styles.offerCard}>

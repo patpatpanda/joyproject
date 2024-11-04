@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Lägg till denna rad
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -8,9 +8,6 @@ import Toast from '../../components/Toast/Toast';
 import './blog.css';
 
 // Resterande kod för BlogPage
-
-// Resterande kod för BlogPage
-
 
 async function fetchPosts() {
   try {
@@ -33,14 +30,17 @@ async function fetchPosts() {
 const BlogPage = () => {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true); // Lägg till loading state
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [postToDelete, setPostToDelete] = useState(null);
 
   useEffect(() => {
     async function loadPosts() {
+      setLoading(true); // Startar laddning
       const fetchedPosts = await fetchPosts();
       setPosts(fetchedPosts);
+      setLoading(false); // Avslutar laddning
     }
     loadPosts();
   }, []);
@@ -87,33 +87,37 @@ const BlogPage = () => {
         Nytt
       </button>
 
-      {posts.length === 0 ? (
-        <p>No posts available.</p>
+      {loading ? (
+        <p className="loadingMessage">Laddar inlägg...</p> // Laddningsindikator
       ) : (
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id} className="postItem">
-              <h3 className="postTitle">{post.title}</h3>
-              <p className="postContent">{post.content}</p>
-              {post.imageUrl && (
-                <Image
-                  src={post.imageUrl}
-                  alt={post.title}
-                  width={400}
-                  height={300}
-                  className="postImage"
-                />
-              )}
-              <small className="postDate">Posted on: {new Date(post.createdAt).toLocaleDateString()}</small>
-              <button 
-                onClick={() => openDeleteModal(post.id)}
-                className="deleteButton"
-              >
-                Ta bort
-              </button>
-            </li>
-          ))}
-        </ul>
+        posts.length === 0 ? (
+          <p>No posts available.</p>
+        ) : (
+          <ul>
+            {posts.map((post) => (
+              <li key={post.id} className="postItem">
+                <h3 className="postTitle">{post.title}</h3>
+                <p className="postContent">{post.content}</p>
+                {post.imageUrl && (
+                  <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    width={400}
+                    height={300}
+                    className="postImage"
+                  />
+                )}
+                <small className="postDate">Posted on: {new Date(post.createdAt).toLocaleDateString()}</small>
+                <button 
+                  onClick={() => openDeleteModal(post.id)}
+                  className="deleteButton"
+                >
+                  Ta bort
+                </button>
+              </li>
+            ))}
+          </ul>
+        )
       )}
 
       <Modal 

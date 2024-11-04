@@ -81,9 +81,7 @@ const Destinations = () => {
   return (
     <section className={styles.destinations}>
       <h2 className={styles.title}>Välj Rätt Destination</h2>
-      <p className={styles.subtitle}>
-        Här är några tips för att hjälpa dig att välja den perfekta resan baserat på dina preferenser och behov.
-      </p>
+      
 
       {/* Tips Section */}
       <div className={styles.tips}>
@@ -100,7 +98,11 @@ const Destinations = () => {
           );
         })}
       </div>
-
+      <div className={styles.divider}>
+  <h3 className={styles.dividerTitle}>Upptäck och Inspireras</h3>
+  <p className={styles.dividerSubtitle}>Utforska våra handplockade destinationer för en oförglömlig upplevelse.</p>
+  <hr className={styles.dividerLine} />
+</div>
       {/* Destination Cards Section */}
       <h2 className={styles.destinationsTitle}>Våra Destinationer</h2>
       <div className={styles.cardsContainer}>
