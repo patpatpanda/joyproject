@@ -1,3 +1,4 @@
+/* Basinställningar för header */
 .header {
   position: fixed;
   top: 0;
@@ -11,7 +12,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10;
   padding: 0 2rem;
-  backdrop-filter: blur(8px); /* Lätt glaseffekt */
+  backdrop-filter: blur(8px);
 }
 
 .headerContainer {
@@ -22,15 +23,10 @@
   max-width: 1200px;
 }
 
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
 .logoText {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #fff; /* Gyllene accent */
+  color: #f7f7f7;
   font-family: 'Playfair Display', serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -44,7 +40,7 @@
 }
 
 .nav a {
-  color: #e0e0e0;
+  color: #f7f7f7;
   font-weight: 500;
   text-decoration: none;
   position: relative;
@@ -59,18 +55,23 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #FFD700;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  background-color: #f7f7f7; /* Samma färg som texten */
+  transform: scaleX(0); /* Börjar med ett streck som är dolt */
+  transition: transform 0.3s ease; /* Smidig animering */
   transform-origin: bottom right;
 }
 
+.nav a:hover {
+  color: #f7f7f7;
+}
+
 .nav a:hover::after {
-  transform: scaleX(1);
+  transform: scaleX(1); /* Strecket syns på hover */
   transform-origin: bottom left;
 }
 
-/* Dropdown styling */
+
+/* Dropdown meny */
 .dropdown {
   position: relative;
 }
@@ -93,27 +94,30 @@
   display: block;
 }
 
+.dropdownMenuOpen {
+  display: block; /* Visar dropdown vid klick på mobilen */
+}
+
 .dropdownMenu li {
   padding: 0.5rem 1.5rem;
 }
 
 .dropdownMenu li a {
-  color: #e0e0e0;
+  color: #f7f7f7;
   text-decoration: none;
-  display: block;
   font-weight: 400;
+  display: block;
   transition: color 0.3s ease;
 }
 
 .dropdownMenu li a:hover {
-  background-color: #FFD700;
-  color: #222;
+  color: #f7f7f7;
 }
 
-/* Mobile Menu */
+/* Menyknapp - öppen eller stängd */
 .menuButton {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   background: none;
   border: none;
   color: #f0f0f0;
@@ -121,60 +125,70 @@
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
+.closeButton {
+  font-size: 2rem;
+  color: #f7f7f7;
+}
+
 .menuButton:hover {
-  transform: scale(1.1);
-  color: #FFD700;
+  color: #f7f7f7;
 }
 
 @media (max-width: 768px) {
+  /* Gör menyknappen synlig på mobiler */
   .menuButton {
     display: block;
   }
 
-  .header {
-    height: 70px;
-  }
-
-  .logoText {
-    font-size: 1.5rem;
-  }
-
+  /* Dölj huvudnavigeringen för mobilen */
   .nav {
     display: none;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
     position: fixed;
     top: 0;
     right: 0;
-    height: 100%;
-    background-color: rgba(34, 34, 34, 0.98);
-    padding: 2rem;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.98); /* Mörkare bakgrund */
+    padding: 5rem 2rem;
     width: 250px;
-    z-index: 10;
-    color: #ffffff;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    color: #f0f0f0;
   }
 
   .navOpen {
     display: flex;
+    transform: translateX(0); /* Skjuts in från höger */
   }
 
+  /* Menyalternativ och dropdown */
   .nav a,
   .dropdownMenu li a {
-    color: #f7f7f7;
+    color: #f7f7f7; /* Ljusare text för mobil */
+    font-size: 1.1rem;
+    padding: 0.5rem;
   }
 
   .nav a:hover,
   .dropdownMenu li a:hover {
-    color: #FFD700;
+    color: #f7f7f7;
   }
 
+  /* Anpassar dropdownen i mobilen */
   .dropdownMenu {
     position: static;
     box-shadow: none;
     padding: 0;
+    display: block;
   }
 
+  /* Visar mobil-dropdown med vit text */
   .dropdownMenu li a {
+    color: #f7f7f7;
+  }
+
+  .dropdownMenu li a:hover {
     color: #f7f7f7;
   }
 }

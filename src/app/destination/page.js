@@ -3,8 +3,42 @@
 
 import Link from 'next/link';
 import styles from './Destinations.module.css';
+import { FaBullseye, FaMoneyBillWave, FaCloudSun, FaLandmark, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Destinations = () => {
+  const tips = [
+    {
+      icon: FaBullseye,
+      title: "Definiera dina mål",
+      description: "Fundera på vad du vill få ut av din resa – äventyr, kultur, avkoppling eller kanske en mix av allt? Att ha ett tydligt mål hjälper dig att välja rätt destination."
+    },
+    {
+      icon: FaMoneyBillWave,
+      title: "Tänk på din budget",
+      description: "Resor kan variera kraftigt i kostnad beroende på destination, boende och aktiviteter. Att sätta en budget i förväg hjälper dig att begränsa alternativen och undvika överraskningar."
+    },
+    {
+      icon: FaCloudSun,
+      title: "Undersök klimatet",
+      description: "Klimatet påverkar resan avsevärt. Vill du njuta av sol och värme, eller är svalare temperaturer och snö mer i din smak? Kolla väderförhållandena för att få en bättre upplevelse."
+    },
+    {
+      icon: FaLandmark,
+      title: "Utforska kulturella upplevelser",
+      description: "Om kultur och traditioner är viktiga för dig, undersök vilka kulturella sevärdheter, festivaler och historiska platser som finns på olika destinationer."
+    },
+    {
+      icon: FaClock,
+      title: "Resans längd och logistik",
+      description: "Planera efter hur lång tid du har tillgängligt. Vissa destinationer är bättre lämpade för kortare resor, medan andra kräver mer tid för att verkligen upplevas."
+    },
+    {
+      icon: FaMapMarkerAlt,
+      title: "Utforska lokala smultronställen",
+      description: "Förutom de välkända turistattraktionerna kan det vara givande att besöka mindre kända platser som bara lokalbefolkningen känner till."
+    }
+  ];
+
   const destinations = [
     {
       name: "Italien",
@@ -23,7 +57,25 @@ const Destinations = () => {
       description: "Njut av Alpernas skönhet, skidåkning och kultur i Österrike.",
       image: "/images/österike.jpg",
       link: "/destination/austria"
-    }
+    },
+    {
+      name: "Italien",
+      description: "Utforska soliga stränder, fantastisk mat och historiska sevärdheter i Italien.",
+      image: "/images/italy.jpg",
+      link: "/destination/italy"
+    },
+    {
+      name: "Italien",
+      description: "Utforska soliga stränder, fantastisk mat och historiska sevärdheter i Italien.",
+      image: "/images/italy.jpg",
+      link: "/destination/italy"
+    },
+    {
+      name: "Italien",
+      description: "Utforska soliga stränder, fantastisk mat och historiska sevärdheter i Italien.",
+      image: "/images/italy.jpg",
+      link: "/destination/italy"
+    },
   ];
 
   return (
@@ -32,32 +84,24 @@ const Destinations = () => {
       <p className={styles.subtitle}>
         Här är några tips för att hjälpa dig att välja den perfekta resan baserat på dina preferenser och behov.
       </p>
+
+      {/* Tips Section */}
       <div className={styles.tips}>
-        <div className={styles.tip}>
-          <h3>Definiera dina mål</h3>
-          <p>Fundera på vad du vill få ut av din resa – äventyr, kultur, avkoppling eller kanske en mix av allt? Att ha ett tydligt mål hjälper dig att välja rätt destination.</p>
-        </div>
-        <div className={styles.tip}>
-          <h3>Tänk på din budget</h3>
-          <p>Resor kan variera kraftigt i kostnad beroende på destination, boende och aktiviteter. Att sätta en budget i förväg hjälper dig att begränsa alternativen och undvika överraskningar.</p>
-        </div>
-        <div className={styles.tip}>
-          <h3>Undersök klimatet</h3>
-          <p>Klimatet påverkar resan avsevärt. Vill du njuta av sol och värme, eller är svalare temperaturer och snö mer i din smak? Kolla väderförhållandena för att få en bättre upplevelse.</p>
-        </div>
-        <div className={styles.tip}>
-          <h3>Utforska kulturella upplevelser</h3>
-          <p>Om kultur och traditioner är viktiga för dig, undersök vilka kulturella sevärdheter, festivaler och historiska platser som finns på olika destinationer.</p>
-        </div>
-        <div className={styles.tip}>
-          <h3>Resans längd och logistik</h3>
-          <p>Planera efter hur lång tid du har tillgängligt. Vissa destinationer är bättre lämpade för kortare resor, medan andra kräver mer tid för att verkligen upplevas.</p>
-        </div>
-        <div className={styles.tip}>
-          <h3>Utforska lokala smultronställen</h3>
-          <p>Förutom de välkända turistattraktionerna kan det vara givande att besöka mindre kända platser som bara lokalbefolkningen känner till. Genom att prata med lokalinvånare eller göra lite research innan resan kan du hitta unika sevärdheter, restauranger och evenemang som ger en mer autentisk upplevelse.</p>
-        </div>
+        {tips.map((tip, index) => {
+          const IconComponent = tip.icon;
+          return (
+            <div key={index} className={styles.tip}>
+              <IconComponent className={styles.tipIcon} />
+              <div className={styles.tipContent}>
+                <h3>{tip.title}</h3>
+                <p>{tip.description}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      {/* Destination Cards Section */}
       <h2 className={styles.destinationsTitle}>Våra Destinationer</h2>
       <div className={styles.cardsContainer}>
         {destinations.map((destination, index) => (

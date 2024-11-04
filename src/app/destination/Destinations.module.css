@@ -1,246 +1,134 @@
+
+/* Container for destinations */
 .destinations {
-  padding: 4rem 2rem;
-  text-align: center;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  margin-top: 100px;
-  border-radius: 12px;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  padding: 2rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.title {
-  font-size: 2.7rem;
-  color: #6B7754;
-  margin-bottom: 1.5rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.title:hover {
-  color: #8B9C7B;
+/* Section Titles */
+.title, .destinationsTitle {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .subtitle {
   font-size: 1.2rem;
-  color: #4A4A48;
-  margin-bottom: 3rem;
-  line-height: 1.6;
-  max-width: 80%;
-  margin: 0 auto;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Ny stil för tipssektionen */
+/* Tips Section */
 .tips {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
   margin-bottom: 3rem;
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 0.5s;
 }
 
 .tip {
-  background: linear-gradient(to right, #ffffff, #f7f7f7);
-  padding: 2.5rem 2rem;
-  border-left: 5px solid #A89C8A;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 320px;
+  flex: 1 1 320px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  text-align: left;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .tip:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-left: 5px solid #4A4A48;
-  background: linear-gradient(120deg, #f8f9fa, #ffffff);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.tip::before {
-  content: "✓";
-  font-size: 1.8rem;
-  color: #A89C8A;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+.tipIcon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  flex-shrink: 0;
 }
 
-.tip h3 {
+.tipContent h3 {
   font-size: 1.3rem;
-  color: #6B7754;
-  margin: 1rem 0 0.5rem;
-  padding-left: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
-.tip p {
+.tipContent p {
+  color: var(--text-color);
   font-size: 1rem;
-  color: #4A4A48;
-  line-height: 1.6;
-  padding-left: 2rem;
+  line-height: 1.4;
 }
 
-/* Stilar för destinationssektionen */
-.destinationsTitle {
-  font-size: 2.3rem;
-  color: #6B7754;
-  margin-bottom: 2rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  transition: color 0.3s ease;
-}
-
-.destinationsTitle:hover {
-  color: #8B9C7B;
-}
-
+/* Cards Section */
 .cardsContainer {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
-  margin-top: 100px;
-  flex-wrap: wrap; /* Gör att korten radbryts på mindre skärmar */
 }
 
 .card {
-  position: relative;
-  width: 300px;
-  overflow: hidden;
+  background-color: var(--secondary-color);
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  background-color: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  overflow: hidden;
+  width: 300px;
   cursor: pointer;
-  height: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  border: 2px solid #4A4A48;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .cardImage {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  transition: transform 0.5s ease;
-}
-
-.card:hover .cardImage {
-  transform: scale(1.05) translateY(-10px);
+  transition: opacity 0.3s ease;
 }
 
 .cardContent {
   padding: 1.5rem;
-  text-align: left;
 }
 
 .cardTitle {
-  font-size: 1.6rem;
-  color: #6B7754;
+  color: var(--accent-color);
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.card:hover .cardTitle {
-  color: #8B9C7B;
 }
 
 .cardDescription {
+  color: var(--background-color);
   font-size: 1rem;
-  color: #4A4A48;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
-/* Responsive Design for Medium Screens */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .tip {
-    padding: 2rem 1.5rem;
-  }
-
-  .tip h3 {
-    font-size: 1.2rem;
-  }
-
-  .tip p {
-    font-size: 0.95rem;
+  .tips {
+    flex-direction: column;
+    align-items: center;
   }
 
   .cardsContainer {
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
 
   .card {
-    width: 100%; /* Gör korten bredare på mindre skärmar */
-  }
-
-  .cardTitle {
-    font-size: 1.4rem;
-  }
-}
-
-/* Responsive Design for Small Screens */
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
-  }
-
-  .tip {
-    padding: 1.5rem 1rem;
-  }
-
-  .tip h3 {
-    font-size: 1.1rem;
-  }
-
-  .tip p {
-    font-size: 0.9rem;
-  }
-
-  .cardsContainer {
-    margin-top: 50px;
-  }
-
-  .card {
-    width: 100%; /* Använd 100% bredd på mycket små skärmar */
-    height: auto; /* Justera höjden automatiskt för små skärmar */
-  }
-
-  .cardTitle {
-    font-size: 1.2rem;
-  }
-
-  .cardDescription {
-    font-size: 0.9rem;
+    width: 100%;
   }
 }

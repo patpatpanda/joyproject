@@ -11,12 +11,12 @@ export default function Offers() {
     },
     {
       name: "Slottsrundtur i Bayern",
-      video: "/videos/norway.mp4",
+      video: "/videos/castle.mp4",
       description: "Hör av dig om du vill veta mer om vår exklusiva Slottstur i Bayern. Platserna är få, så kontakta oss för att garantera din plats.",
     },
     {
       name: "Kulinarisk resa genom Sydostasien",
-      video: "/videos/italy.mp4",
+      video: "/videos/asia.mp4",
       description: "En unik och spännande upplevelse genom Sydostasiens smaker och kulturer. Kontakta oss idag för att boka din plats.",
     },
   ];
