@@ -41,7 +41,7 @@ export default function Hero() {
   <span className={styles.logoTitle}>JOY</span>
   <div className={styles.logoIcon}></div>
   <span className={styles.logoSub}>TRAVEL GROUP</span>
-  <div className={styles.logoLines}></div> {/* Ny div för strecken */}
+  
 </div>
 
         <p className={styles.subtitle}>
