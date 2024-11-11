@@ -34,12 +34,22 @@ export default function Hero() {
 
       <div className={styles.overlay}></div>
       <div className={styles.content}>
-        <img src="/images/ror.png" alt="Logga" className={styles.logo} />
+        
+        {/* Uppdaterad HTML-baserad logotyp */}
+        <div className={styles.logoContainer}>
+  <span className={styles.logoMain}>DESTINATION OF</span>
+  <span className={styles.logoTitle}>JOY</span>
+  <div className={styles.logoIcon}></div>
+  <span className={styles.logoSub}>TRAVEL GROUP</span>
+  <div className={styles.logoLines}></div> {/* Ny div för strecken */}
+</div>
+
         <p className={styles.subtitle}>
           {language === 'sv'
             ? 'Välkommen till en värld bortom det vanliga. Hos oss handlar resande om mer än att bara besöka en plats – det är en resa in i själens innersta hörn. Med våra exklusiva och skräddarsydda resor får du chansen att utforska ikoniska platser och gömda pärlor, omslutna av lyx och omtanke.'
             : 'Welcome to a world beyond the ordinary. With us, travel is about more than just visiting a place – it\'s a journey into the deepest corners of the soul. With our exclusive and customized trips, you have the chance to explore iconic places and hidden gems, surrounded by luxury and care.'}
         </p>
+        
         <Link href="/services">
           <button className={styles.ctaButton}>
             {language === 'sv' ? 'Upptäck dina drömmars resa' : 'Discover the journey of your dreams'}

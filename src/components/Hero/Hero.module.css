@@ -42,27 +42,16 @@
   padding-bottom: 200px;
 }
 
-.logo {
-  width: 850px;
- 
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.8));
-  opacity: 0;
-  transform: scale(0.5);
-  animation: zoomIn 1.8s ease-out 1s forwards;
-}
-
-@keyframes zoomIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.5);
+    transform: translateY(20px); /* Liten rörelse för bättre effekt */
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
-
 .subtitle {
   font-size: 1.25rem;
   color: #E0E0E0;
@@ -75,7 +64,6 @@
   padding: 0.8rem 2.5rem;
   background-color: transparent;
   color: #ffffff;
-  border: 2px solid transparent;
   border: 2px solid #A89C8A;
   border-radius: 50px;
   cursor: pointer;
@@ -83,57 +71,28 @@
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease, border 0.3s ease;
+  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
 }
 
 .ctaButton:hover {
- 
   background-color: #A89C8A;
-  border: 2px solid #A89C8A;
+  border-color: #A89C8A;
   transform: scale(1.08);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Responsiva justeringar för mindre skärmar */
 @media (max-width: 768px) {
   .logo {
-    width: 750px;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.8));
-    opacity: 0;
-    transform: scale(0.5);
-    animation: zoomIn 1.8s ease-out 1s forwards;
+    width: 450px;
   }
-  .content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-  }
-  
   .subtitle {
-    font-size: 1rem; /* Minska textstorlek */
+    font-size: 1rem;
     margin-bottom: 1.5rem;
     padding: 0 1rem;
   }
-
   .ctaButton {
-    font-size: 0.9rem; /* Minska knappstorlek */
+    font-size: 0.9rem;
     padding: 0.6rem 1.8rem;
     letter-spacing: 0.5px;
   }
@@ -143,14 +102,118 @@
   .hero {
     padding: 0 1rem;
   }
-
+  .logo {
+    width: 300px;
+  }
   .subtitle {
-    font-size: 0.9rem; /* Minska ytterligare på små mobiler */
+    font-size: 0.9rem;
     margin-bottom: 1rem;
   }
-
   .ctaButton {
-    font-size: 0.8rem; /* Minska knappstorlek ytterligare */
+    font-size: 0.8rem;
     padding: 0.5rem 1.5rem;
   }
+}
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 260px; /* Basbredd för cirkeln */
+  height: 260px; /* Basbredd för cirkeln */
+  padding: 30px;
+  margin-bottom: 50px;
+  border: 3px solid #6B7754;
+  border-radius: 50%; /* Gör behållaren cirkelformad */
+  overflow: hidden;
+
+  text-align: center;
+  opacity: 0; /* Startar med osynlig */
+  animation: fadeIn 2s ease forwards;
+}
+
+/* Stil för huvudtexten */
+.logoMain {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: 'bold', serif;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  animation-delay: 0.5s;
+}
+.logoTitle{
+  font-size: 1.5rem;
+}
+/* Stil för ikon */
+.logoIcon {
+  background-image: url('/images/fox.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px; /* Anpassad ikonstorlek */
+  height: 100px;
+  margin-bottom: 10px;
+  animation-delay: 1s;
+}
+
+/* Stil för undertexten */
+.logoSub {
+  font-size: 0.7rem;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  letter-spacing: 1px;
+  animation-delay: 1.5s;
+}
+
+/* Responsiva justeringar för mindre skärmar */
+@media (max-width: 768px) {
+  .logoContainer {
+    width: 260px; /* Minska storlek på cirkeln */
+    height: 260px;
+    padding: 15px;
+  }
+  .logoMain {
+    font-size: 1rem;
+  }
+  .logoIcon {
+    width: 80px;
+    height: 80px;
+  }
+  .logoSub {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoContainer {
+    width: 210px; /* Minska ytterligare för små mobiler */
+    height: 210px;
+    padding: 10px;
+  margin-top:200px
+  }
+  .logoMain {
+    font-size: 0.9rem;
+  }
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+  }
+  .logoSub {
+    font-size: 0.8rem;
+  }
+}
+.logoLines {
+  display: flex;
+  gap: 5px; /* Avstånd mellan strecken */
+  margin-top: 10px;
+}
+
+.logoLines::before,
+.logoLines::after,
+.logoLines div {
+  content: "";
+  display: inline-block;
+  width: 20px; /* Längd på varje streck */
+  height: 2px; /* Tjocklek på strecken */
+  background-color: #ffffff; /* Färg på strecken */
 }
