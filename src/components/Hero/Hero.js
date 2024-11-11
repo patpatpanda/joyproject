@@ -33,7 +33,7 @@ export default function Hero() {
 
       <div className={styles.overlay}></div>
       <div className={styles.content}>
-        <img src="/images/joylogo.jpg" alt="Logga" className={styles.logo} />
+        <img src="/images/ror.png" alt="Logga" className={styles.logo} />
         <p className={styles.subtitle}>
           Välkommen till en värld bortom det vanliga. Hos oss handlar resande om mer än
           att bara besöka en plats – det är en resa in i själens innersta hörn. Med våra
