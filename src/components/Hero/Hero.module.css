@@ -126,10 +126,14 @@
   border: 3px solid #6B7754;
   border-radius: 50%; /* Gör behållaren cirkelformad */
   overflow: hidden;
-
   text-align: center;
   opacity: 0; /* Startar med osynlig */
   animation: fadeIn 2s ease forwards;
+
+  /* Lysande box-shadow */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), /* Yttre glöd */
+              0 0 40px rgba(255, 255, 255, 0.4), /* Medel glöd */
+              0 0 60px rgba(255, 255, 255, 0.2); /* Inre glöd */
 }
 
 /* Stil för huvudtexten */
