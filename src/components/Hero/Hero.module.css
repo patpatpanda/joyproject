@@ -96,6 +96,23 @@
     padding: 0.6rem 1.8rem;
     letter-spacing: 0.5px;
   }
+  .logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px; /* Mindre bredd för att hålla den kompakt */
+    height: 200px;
+    padding: 20px;
+    margin-top: 150px;
+    border: 2px solid #6B7754;
+    border-radius: 50%;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Mer subtil skugga */
+  }
+  
 }
 
 @media (max-width: 480px) {
@@ -119,97 +136,54 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 260px; /* Basbredd för cirkeln */
-  height: 260px; /* Basbredd för cirkeln */
-  padding: 30px;
-  margin-bottom: 50px;
-  border: 3px solid #6B7754;
-  border-radius: 50%; /* Gör behållaren cirkelformad */
-  overflow: hidden;
+  width: 200px; /* Mindre bredd för att hålla den kompakt */
+  height: 200px;
+  padding: 20px;
+  margin-bottom: 40px;
+  border: 2px solid #6B7754;
+  border-radius: 50%;
   text-align: center;
-  opacity: 0; /* Startar med osynlig */
-  animation: fadeIn 2s ease forwards;
-
-  /* Lysande box-shadow */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), /* Yttre glöd */
-              0 0 40px rgba(255, 255, 255, 0.4), /* Medel glöd */
-              0 0 60px rgba(255, 255, 255, 0.2); /* Inre glöd */
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Mer subtil skugga */
 }
 
-/* Stil för huvudtexten */
 .logoMain {
-  font-size: 0.8rem;
-  font-weight: 500;
-  font-family: 'bold', serif;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1.5px;
   color: #ffffff;
-  animation-delay: 0.5s;
 }
-.logoTitle{
-  font-size: 1.5rem;
+
+.logoTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
 }
-/* Stil för ikon */
+
 .logoIcon {
   background-image: url('/images/fox.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100px; /* Anpassad ikonstorlek */
-  height: 100px;
-  margin-bottom: 10px;
-  animation-delay: 1s;
+  width: 80px; /* Mindre ikon för en kompakt design */
+  height: 80px;
+  margin-bottom: 8px;
 }
 
-/* Stil för undertexten */
 .logoSub {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-family: 'Poppins', sans-serif;
-  color: #ffffff;
+  color: #E0E0E0;
   letter-spacing: 1px;
-  animation-delay: 1.5s;
 }
 
-/* Responsiva justeringar för mindre skärmar */
-@media (max-width: 768px) {
-  .logoContainer {
-    width: 260px; /* Minska storlek på cirkeln */
-    height: 260px;
-    padding: 15px;
-  }
-  .logoMain {
-    font-size: 1rem;
-  }
-  .logoIcon {
-    width: 80px;
-    height: 80px;
-  }
-  .logoSub {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .logoContainer {
-    width: 210px; /* Minska ytterligare för små mobiler */
-    height: 210px;
-    padding: 10px;
-  margin-top:200px
-  }
-  .logoMain {
-    font-size: 0.9rem;
-  }
-  .logoIcon {
-    width: 60px;
-    height: 60px;
-  }
-  .logoSub {
-    font-size: 0.8rem;
-  }
-}
 .logoLines {
   display: flex;
-  gap: 5px; /* Avstånd mellan strecken */
-  margin-top: 10px;
+  gap: 5px;
+  margin-top: 5px;
 }
 
 .logoLines::before,
@@ -217,7 +191,7 @@
 .logoLines div {
   content: "";
   display: inline-block;
-  width: 20px; /* Längd på varje streck */
-  height: 2px; /* Tjocklek på strecken */
-  background-color: #ffffff; /* Färg på strecken */
+  width: 18px;
+  height: 2px;
+  background-color: #E0E0E0;
 }
