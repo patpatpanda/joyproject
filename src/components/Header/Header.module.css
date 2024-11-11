@@ -1,4 +1,3 @@
-/* Basinställningar för header */
 .header {
   position: fixed;
   top: 0;
@@ -7,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3B3F33; /* Semi-transparent mörk */
+  background-color: rgba(59, 63, 51, 0.85); /* Mörk grön med 85% opacitet */
   color: #f0f0f0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10;

@@ -37,16 +37,16 @@ export default function Offers() {
             <div className={styles.content}>
               <h3 className={styles.offerName}>{offer.name}</h3>
               <p className={styles.description}>{offer.description}</p>
-              <button
-                className={styles.button}
-                onClick={() => (window.location.href = '/services#exklusiva-erbjudanden')}
-              >
-                Visa Alla
-              </button>
             </div>
           </div>
         ))}
       </div>
+      <button
+        className={styles.button}
+        onClick={() => (window.location.href = '/services#exklusiva-erbjudanden')}
+      >
+        Visa Alla
+      </button>
       <div className={styles.slantedBottom}></div>
     </section>
   );

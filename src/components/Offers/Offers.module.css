@@ -9,6 +9,8 @@
   align-items: center;
   overflow: hidden;
   z-index: 1;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 /* Lutande övergång */
@@ -96,7 +98,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Button Styling */
 .button {
   padding: 0.75rem 1.5rem;
   font-size: 0.9rem;
@@ -107,6 +108,7 @@
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 2rem; /* Lägg till en marginal så knappen inte sitter för nära korten */
 }
 
 .button:hover {
