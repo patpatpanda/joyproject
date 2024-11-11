@@ -2,9 +2,12 @@
 "use client";
 
 import { FaUtensils, FaGlobe, FaMapMarkerAlt, FaLightbulb } from 'react-icons/fa';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Destination.module.css';
 
 export default function Destination({ data }) {
+  const { language } = useLanguage();
+
   return (
     <>
       {/* Hero Section with Video Background */}
@@ -17,8 +20,6 @@ export default function Destination({ data }) {
           muted
           playsInline
         />
-       
-       
       </div>
 
       {/* Destination Section */}
@@ -26,17 +27,21 @@ export default function Destination({ data }) {
         
         {/* General Info Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
-          <h2 className={styles.sectionTitle}><FaGlobe /> {data.name}</h2>
+          <h2 className={styles.sectionTitle}>
+            <FaGlobe /> {data.name}
+          </h2>
           <p>{data.description}</p>
         </div>
 
         {/* Fun Facts Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
-          <h2 className={styles.sectionTitle}><FaLightbulb /> Visste Du Att?</h2>
+          <h2 className={styles.sectionTitle}>
+            <FaLightbulb /> {language === 'sv' ? "Visste Du Att?" : "Did You Know?"}
+          </h2>
           <ul className={styles.list}>
             {data.facts.map((fact, index) => (
               <li key={index} className={styles.listItem}>
-               {fact}
+                {fact}
               </li>
             ))}
           </ul>
@@ -44,17 +49,21 @@ export default function Destination({ data }) {
 
         {/* Popular Destinations Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
-          <h2 className={styles.sectionTitle}><FaMapMarkerAlt /> Populära Resmål i {data.name}</h2>
+          <h2 className={styles.sectionTitle}>
+            <FaMapMarkerAlt /> {language === 'sv' ? `Populära Resmål` : `Popular Destinations`}
+          </h2>
           <p>{data.popularDestinations}</p>
         </div>
 
         {/* Travel Tips Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
-          <h2 className={styles.sectionTitle}><FaUtensils /> Tips för Resenärer</h2>
+          <h2 className={styles.sectionTitle}>
+            <FaUtensils /> {language === 'sv' ? "Tips för Resenärer" : "Travel Tips"}
+          </h2>
           <ul className={styles.list}>
             {data.travelTips.map((tip, index) => (
               <li key={index} className={styles.listItem}>
-              {tip}
+                {tip}
               </li>
             ))}
           </ul>

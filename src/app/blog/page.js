@@ -7,8 +7,7 @@ import Modal from '../../components/Modal/Modal';
 import Toast from '../../components/Toast/Toast';
 import './blog.css';
 
-// Resterande kod för BlogPage
-
+// Funktion för att hämta inlägg från API
 async function fetchPosts() {
   try {
     const res = await fetch('https://blogapijoy.azurewebsites.net/api/posts', {
@@ -30,11 +29,12 @@ async function fetchPosts() {
 const BlogPage = () => {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true); // Lägg till loading state
+  const [loading, setLoading] = useState(true); // Loading state för att visa laddningsindikator
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [postToDelete, setPostToDelete] = useState(null);
 
+  // Hämta inlägg när komponenten laddas
   useEffect(() => {
     async function loadPosts() {
       setLoading(true); // Startar laddning
@@ -45,6 +45,7 @@ const BlogPage = () => {
     loadPosts();
   }, []);
 
+  // Hantera borttagning av ett inlägg
   const handleDelete = async (password) => {
     if (!postToDelete) return;
 
@@ -58,6 +59,7 @@ const BlogPage = () => {
       });
 
       if (res.ok) {
+        // Ta bort inlägget från listan och visa toast
         setPosts(posts.filter(post => post.id !== postToDelete));
         setToastMessage("Post deleted successfully.");
       } else {
@@ -69,9 +71,11 @@ const BlogPage = () => {
       alert(`An error occurred: ${error.message}`);
     } finally {
       setPostToDelete(null);
+      setShowModal(false); // Stänger modal efter försök
     }
   };
 
+  // Öppnar modal för bekräftelse vid borttagning
   const openDeleteModal = (postId) => {
     setPostToDelete(postId);
     setShowModal(true);
@@ -87,8 +91,9 @@ const BlogPage = () => {
         Nytt
       </button>
 
+      {/* Laddningsindikator */}
       {loading ? (
-        <p className="loadingMessage">Laddar inlägg...</p> // Laddningsindikator
+        <p className="loadingMessage">Laddar inlägg...</p>
       ) : (
         posts.length === 0 ? (
           <p>No posts available.</p>
@@ -120,12 +125,14 @@ const BlogPage = () => {
         )
       )}
 
+      {/* Modal för bekräftelse av borttagning */}
       <Modal 
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
         onSubmit={handleDelete} 
       />
 
+      {/* Toast för att visa meddelanden */}
       {toastMessage && (
         <Toast message={toastMessage} onClose={() => setToastMessage('')} />
       )}

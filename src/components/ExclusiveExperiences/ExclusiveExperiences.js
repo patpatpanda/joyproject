@@ -1,34 +1,41 @@
-// src/components/ExclusiveExperiences/ExclusiveExperiences.js
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import { useLanguage } from '../../context/LanguageContext';
 import styles from "./ExclusiveExperiences.module.css";
 
 export default function ExclusiveExperiences() {
+  const { language } = useLanguage();
   const [visibleSections, setVisibleSections] = useState([]);
   const sectionsRef = useRef([]);
 
   const experiences = [
     {
-      name: "Glamping-äventyr",
+      name: language === 'sv' ? "Glamping-äventyr" : "Glamping Adventure",
       video: "/videos/glamping.mp4",
       description:
-        "Upplev en annorlunda typ av camping där natur möter lyx. Tänk dig att vakna upp till soluppgången med fågelkvitter och frisk skogsluft, allt medan du bor bekvämt och rymligt.",
-      price: "Pris: 15 000kr",
+        language === 'sv'
+          ? "Upplev en annorlunda typ av camping där natur möter lyx. Tänk dig att vakna upp till soluppgången med fågelkvitter och frisk skogsluft, allt medan du bor bekvämt och rymligt."
+          : "Experience a different kind of camping where nature meets luxury. Imagine waking up to the sunrise with birds chirping and fresh forest air, all while staying in comfort and space.",
+      price: language === 'sv' ? "Pris: 15 000kr" : "Price: 15,000 SEK",
     },
     {
-      name: "Spa-upplevelse",
+      name: language === 'sv' ? "Spa-upplevelse" : "Spa Experience",
       video: "/videos/spa.mp4",
       description:
-        "Fly från vardagen till en plats där lugn och harmoni väntar. Vår spa-upplevelse erbjuder ett brett utbud av behandlingar, från djupavslappnande massage till ansiktsbehandlingar som ger huden nytt liv.",
-      price: "Pris: 20 000kr",
+        language === 'sv'
+          ? "Fly från vardagen till en plats där lugn och harmoni väntar. Vår spa-upplevelse erbjuder ett brett utbud av behandlingar, från djupavslappnande massage till ansiktsbehandlingar som ger huden nytt liv."
+          : "Escape from everyday life to a place of tranquility and harmony. Our spa experience offers a wide range of treatments, from deep relaxation massages to revitalizing facials.",
+      price: language === 'sv' ? "Pris: 20 000kr" : "Price: 20,000 SEK",
     },
     {
-      name: "Avkopplande getaway",
+      name: language === 'sv' ? "Avkopplande getaway" : "Relaxing Getaway",
       video: "/videos/gateway.mp4",
       description:
-        "I en värld där vardagen ofta går i högt tempo, är en avkopplande getaway precis vad du behöver för att komma i balans.",
-      price: "Pris: 30 000kr",
+        language === 'sv'
+          ? "I en värld där vardagen ofta går i högt tempo, är en avkopplande getaway precis vad du behöver för att komma i balans."
+          : "In a world where daily life often moves at a fast pace, a relaxing getaway is exactly what you need to find balance.",
+      price: language === 'sv' ? "Pris: 30 000kr" : "Price: 30,000 SEK",
     },
   ];
 
@@ -66,7 +73,6 @@ export default function ExclusiveExperiences() {
 
   return (
     <section className={styles.exclusiveExperiences}>
-      
       {experiences.map((experience, index) => (
         <div
           key={index}

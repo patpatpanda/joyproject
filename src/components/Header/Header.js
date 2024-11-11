@@ -2,12 +2,15 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Header.module.css';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  const { language, toggleLanguage } = useLanguage();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -57,22 +60,30 @@ export default function Header() {
         </button>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
-          <Link href="/" onClick={closeMenu}>Hem</Link>
-          <Link href="/services" onClick={closeMenu}>Tjänster</Link>
+          <Link href="/" onClick={closeMenu}>{language === 'sv' ? 'Hem' : 'Home'}</Link>
+          <Link href="/services" onClick={closeMenu}>{language === 'sv' ? 'Tjänster' : 'Services'}</Link>
 
           <div className={styles.dropdown} ref={dropdownRef}>
-            <Link href="/destination" className={styles.dropdownTitle} onClick={toggleDropdown}>
-              Destinationer
-            </Link>
+            <button
+              className={`${styles.dropdownTitle}`}
+              onClick={toggleDropdown}
+            >
+              {language === 'sv' ? 'Destinationer' : 'Destinations'}
+            </button>
             <ul className={`${styles.dropdownMenu} ${dropdownOpen ? styles.dropdownMenuOpen : ''}`}>
-              <li><Link href="/destination/italy" onClick={closeMenu}>Italien</Link></li>
-              <li><Link href="/destination/norway" onClick={closeMenu}>Norge</Link></li>
-              <li><Link href="/destination/Austria" onClick={closeMenu}>Österrike</Link></li>
+              <li><Link href="/destination/italy" onClick={closeMenu}>{language === 'sv' ? 'Italien' : 'Italy'}</Link></li>
+              <li><Link href="/destination/norway" onClick={closeMenu}>{language === 'sv' ? 'Norge' : 'Norway'}</Link></li>
+              <li><Link href="/destination/Austria" onClick={closeMenu}>{language === 'sv' ? 'Österrike' : 'Austria'}</Link></li>
             </ul>
           </div>
 
-          <Link href="/#contact" onClick={closeMenu}>Kontakt</Link>
-          <Link href="/blog" onClick={closeMenu}>Blog</Link>
+          <Link href="/#contact" onClick={closeMenu}>{language === 'sv' ? 'Kontakt' : 'Contact'}</Link>
+          <Link href="/blog" onClick={closeMenu}>{language === 'sv' ? 'Blogg' : 'Blog'}</Link>
+
+          {/* Språkväxlingsknapp */}
+          <button onClick={toggleLanguage} className={styles.languageButton}>
+            {language === 'sv' ? 'Switch to English' : 'Byt till Svenska'}
+          </button>
         </nav>
       </div>
     </header>

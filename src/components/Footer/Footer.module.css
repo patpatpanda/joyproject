@@ -1,7 +1,7 @@
 /* src/components/Footer/Footer.module.css */
 
 .footer {
-  background-color: #333;
+  background-color: rgba(59, 63, 51, 0.85); /* Mörk grön med 85% opacitet */
   color: #ffffff;
   padding: 2rem 0;
   font-size: 0.9rem;
