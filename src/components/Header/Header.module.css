@@ -235,3 +235,62 @@
     color: #f7f7f7;
   }
 }
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f7f7f7;
+  font-family: 'Playfair Display', serif;
+  padding: 0 20px;
+}
+
+.lineContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Avstånd mellan linjer och text */
+}
+
+.logo h1 {
+  font-size: 1.2rem; /* Mindre storlek för att passa headern */
+  font-weight: bold;
+  margin: 0;
+  color: #f7f7f7;
+}
+
+.lineLeft, .lineRight {
+  height: 2px;
+  width: 30px; /* Mindre bredd för linjerna i headern */
+  background-color: #A89C8A; /* Gyllene sand för linjerna */
+}
+
+/* Linjen under "Destination of Joy" */
+.logoLine {
+  height: 2px;
+  width: 40%; /* Anpassa bredden efter behov */
+  margin: 5px auto;
+  background-color: #A89C8A;
+}
+
+.logo h2 {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #f7f7f7;
+  margin-top: 4px;
+}
+
+/* Anpassningar för mindre skärmar */
+@media (max-width: 768px) {
+  .logo h1 {
+    font-size: 1rem;
+  }
+  .lineLeft, .lineRight {
+    width: 20px;
+  }
+  .logoLine {
+    width: 35%; /* Justerad bredd för mindre skärmar */
+  }
+  .logo h2 {
+    font-size: 0.65rem;
+  }
+}

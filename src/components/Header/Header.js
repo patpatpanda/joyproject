@@ -48,7 +48,17 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
-          <span className={styles.logoText}> Destinations of Joy</span>
+         {/* Logotypen */}
+<div className={styles.logo}>
+  <div className={styles.lineContainer}>
+    <div className={styles.lineLeft}></div>
+    <h1>Destination of Joy</h1>
+    <div className={styles.lineRight}></div>
+  </div>
+  <div className={styles.logoLine}></div> {/* Linje under texten */}
+  <h2>{language === 'sv' ? 'Omfamna resan' : 'Embrace the Journey'}</h2>
+</div>
+
         </div>
 
         {/* Stäng-knapp endast när menyn är öppen */}

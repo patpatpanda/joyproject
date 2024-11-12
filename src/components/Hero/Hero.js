@@ -1,4 +1,3 @@
-// src/components/Hero/Hero.js
 "use client";
 import { useRef, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
@@ -35,8 +34,16 @@ export default function Hero() {
       <div className={styles.overlay}></div>
       <div className={styles.content}>
         
-       
-  
+    {/* Logotypen */}
+<div className={styles.logo}>
+  <div className={styles.lineContainer}>
+    <div className={styles.lineLeft}></div>
+    <h1>DESTINATION OF JOY</h1>
+    <div className={styles.lineRight}></div>
+  </div>
+  <div className={styles.logoLine}></div>
+  <h2>{language === 'sv' ? 'Omfamna resan' : 'Embrace the Journey'}</h2>
+</div>
 
 
         <p className={styles.subtitle}>
