@@ -71,7 +71,7 @@ export default function Header() {
             <ul className={`${styles.dropdownMenu} ${dropdownOpen ? styles.dropdownMenuOpen : ''}`}>
               <li><Link href="/destination/italy" onClick={closeMenu}>{language === 'sv' ? 'Italien' : 'Italy'}</Link></li>
               <li><Link href="/destination/norway" onClick={closeMenu}>{language === 'sv' ? 'Norge' : 'Norway'}</Link></li>
-              <li><Link href="/destination/austria" onClick={closeMenu}>{language === 'sv' ? 'Österrike' : 'Austria'}</Link></li>
+              <li><Link href="/destination/Austria" onClick={closeMenu}>{language === 'sv' ? 'Österrike' : 'Austria'}</Link></li>
             </ul>
           </div>
 
