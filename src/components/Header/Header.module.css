@@ -294,3 +294,79 @@
     font-size: 0.65rem;
   }
 }
+.languageButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #A89C8A; /* Gyllene sand för att matcha designen */
+  color: #f7f7f7;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Playfair Display', serif;
+}
+
+.languageButton:hover {
+  background-color: #6B7754; /* Mörkare grön nyans för hover */
+  transform: scale(1.05); /* Lite större vid hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.languageButton:active {
+  transform: scale(0.98); /* Liten intryckseffekt vid klick */
+}
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownLink {
+  color: #f7f7f7;
+  text-decoration: none;
+  padding-right: 8px;
+}
+
+.dropdownButton {
+  background: none;
+  border: none;
+  color: #f7f7f7;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(50, 50, 50, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  list-style: none;
+  border-radius: 6px;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdownMenuOpen {
+  display: block;
+}
+
+.dropdownMenu li {
+  padding: 0.5rem 1.5rem;
+}
+
+.dropdownMenu li a {
+  color: #f7f7f7;
+  text-decoration: none;
+  font-weight: 400;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.dropdownMenu li a:hover {
+  color: #A89C8A;
+}
