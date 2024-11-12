@@ -35,14 +35,9 @@ export default function Hero() {
       <div className={styles.overlay}></div>
       <div className={styles.content}>
         
-        {/* Uppdaterad HTML-baserad logotyp */}
-        <div className={styles.logoContainer}>
-  <span className={styles.logoMain}>DESTINATION OF</span>
-  <span className={styles.logoTitle}>JOY</span>
-  <div className={styles.logoIcon}></div>
-  <span className={styles.logoSub}>TRAVEL GROUP</span>
+       
   
-</div>
+
 
         <p className={styles.subtitle}>
           {language === 'sv'

@@ -12,11 +12,15 @@
   --accent-color: #B8A383; /* Gyllene sand */
   --text-color: #4A4A48; /* Mörkgrå för text */
 }
-
 body {
- 
   color: var(--text-color);
   font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Förhindrar horisontell rullning */
+  margin: 0; /* Tar bort standardmarginaler på body */
+}
+
+html, body {
+  width: 100%; /* Ser till att sidan håller sig inom fönstrets bredd */
 }
 
 header, footer {
