@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useLanguage } from "../../../context/LanguageContext";
 import styles from "./ExperienceDetails.module.css";
-
+import Link from "next/link";
 export default function ExperienceDetails() {
   const { experience } = useParams();
   const { language } = useLanguage();
@@ -81,9 +81,9 @@ export default function ExperienceDetails() {
             ? "Har du frågor om våra exklusiva upplevelser? Tveka inte att höra av dig!"
             : "Do you have questions about our exclusive experiences? Don’t hesitate to reach out!"}
         </p>
-        <a href="/#contact" className={styles.contactButton}>
+        <Link href="/#contact" className={styles.contactButton}>
           {language === "sv" ? "Kontakta oss" : "Contact Us"}
-        </a>
+          </Link>
       </div>
     </section>
   );
