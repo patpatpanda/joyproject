@@ -4,12 +4,13 @@
 import { FaUtensils, FaGlobe, FaMapMarkerAlt, FaLightbulb } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Destination.module.css';
-
+import ActivitiesSection from '../ActivitiesSection/ActivitiesSection';
 export default function Destination({ data }) {
   const { language } = useLanguage();
 
   return (
     <>
+   
       {/* Hero Section with Video Background */}
       <div className={styles.hero}>
         <video
@@ -24,7 +25,7 @@ export default function Destination({ data }) {
 
       {/* Destination Section */}
       <section className={styles.destination}>
-        
+          <ActivitiesSection activities={data.activities} />
         {/* General Info Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
           <h2 className={styles.sectionTitle}>

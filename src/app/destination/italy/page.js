@@ -71,6 +71,89 @@ export default function DestinationItalyPage() {
           "Join local festivals and markets to experience Italy’s vibrant culture up close.",
         ],
 
+    activities: {
+      Rome: {
+        sv: [
+          "Utforska Colosseum och Forum Romanum",
+          "Besök Vatikanstaten och Sixtinska kapellet",
+          "Promenera längs Spanska trappan",
+          "Släng ett mynt i Fontana di Trevi",
+          "Upptäck Pantheon och dess historia",
+        ],
+        en: [
+          "Explore the Colosseum and Roman Forum",
+          "Visit Vatican City and the Sistine Chapel",
+          "Stroll along the Spanish Steps",
+          "Throw a coin into the Trevi Fountain",
+          "Discover the Pantheon and its history",
+        ],
+      },
+      Venice: {
+        sv: [
+          "Åk gondol längs Canal Grande",
+          "Utforska Markusplatsen och Markusdomkyrkan",
+          "Besök Dogepalatset och Suckarnas bro",
+          "Fördjupa dig i konst på Peggy Guggenheim Collection",
+          "Promenera i de smala gränderna i Murano och Burano",
+        ],
+        en: [
+          "Take a gondola ride along the Grand Canal",
+          "Explore St. Mark's Square and Basilica",
+          "Visit the Doge’s Palace and Bridge of Sighs",
+          "Immerse yourself in art at the Peggy Guggenheim Collection",
+          "Wander the narrow streets of Murano and Burano",
+        ],
+      },
+      Florence: {
+        sv: [
+          "Beundra Michelangelos David på Galleria dell'Accademia",
+          "Besök Uffizierna och njut av renässanskonst",
+          "Gå över Ponte Vecchio och utforska dess butiker",
+          "Bestig katedralen Santa Maria del Fiores kupol",
+          "Vila i de vackra Boboli-trädgårdarna",
+        ],
+        en: [
+          "Admire Michelangelo’s David at the Accademia Gallery",
+          "Visit the Uffizi Gallery and enjoy Renaissance art",
+          "Walk across the Ponte Vecchio and explore its shops",
+          "Climb the dome of Florence Cathedral (Santa Maria del Fiore)",
+          "Relax in the beautiful Boboli Gardens",
+        ],
+      },
+      Milan: {
+        sv: [
+          "Utforska Duomo di Milano och dess terrasser",
+          "Besök Leonardo da Vincis Nattvarden",
+          "Shoppa på Galleria Vittorio Emanuele II",
+          "Se en föreställning på Teatro alla Scala",
+          "Utforska det historiska Castello Sforzesco",
+        ],
+        en: [
+          "Explore the Milan Cathedral (Duomo) and its terraces",
+          "Visit Leonardo da Vinci’s The Last Supper",
+          "Shop at Galleria Vittorio Emanuele II",
+          "Watch a performance at Teatro alla Scala",
+          "Explore the historic Sforza Castle (Castello Sforzesco)",
+        ],
+      },
+      Naples: {
+        sv: [
+          "Upptäck Pompeji och dess antika ruiner",
+          "Njut av en autentisk napolitansk pizza",
+          "Utforska Neapels underjordiska värld",
+          "Besök det kungliga palatset i Neapel",
+          "Ta en dagstur till Amalfikusten",
+        ],
+        en: [
+          "Discover Pompeii and its ancient ruins",
+          "Enjoy an authentic Neapolitan pizza",
+          "Explore Naples’ underground world",
+          "Visit the Royal Palace of Naples",
+          "Take a day trip to the Amalfi Coast",
+        ],
+      },
+    },
+
     popularDestinationsImage: "/images/italy/popular.jpg",
     tipsImage: "/images/italy/tips.jpg",
   };

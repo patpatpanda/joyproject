@@ -43,13 +43,72 @@ export default function DestinationNorwayPage() {
           "Northern Norway is one of the best places to experience the Northern Lights, a magical phenomenon that enchants visitors during winter months.",
         ],
 
-    popularDestinations: language === 'sv'
-      ? "Norges storslagna natur är något som alla bör uppleva minst en gång. Oslo, Norges pulserande huvudstad, bjuder på en unik blandning av modern arkitektur och naturnära miljöer – staden omges av fjordar och skogar och är hem till sevärdheter som Nasjonalmuseet och Vigelandsparken. I Bergen, känd för sina färgglada trähus vid Bryggen, kan du uppleva porten till fjordarna och smaka på färsk fisk från stadens fiskmarknad.\n\n" +
-        "Fjordregionen är ett absolut måste, där du hittar ikoniska vyer som Geirangerfjorden och Sognefjorden, vilka erbjuder möjligheter till båtturer, kajakpaddling och vandring. Lofoten är en annan magisk plats, där spektakulära fjäll, turkosa fjordar och små fiskebyar som Henningsvær och Reine ger en oförglömlig upplevelse. Här är naturen både rå och vacker, och du kan ofta se örnar kretsa över det vilda landskapet.\n\n" +
-        "För den som söker äventyr är Nordkapp, Europas nordligaste punkt, en unik plats att besöka. Här står du på världens kant och blickar ut över det Arktiska havet. Jotunheimen nationalpark, med Norges högsta berg, är perfekt för friluftsentusiaster som vill vandra eller klättra. Under sommarmånaderna är Sørlandets kust med sina klippor och små badvikar en perfekt plats för segling och lugna stranddagar."
-      : "Norway’s magnificent nature is something everyone should experience at least once. Oslo, Norway's vibrant capital, offers a unique blend of modern architecture and nature-oriented surroundings – the city is surrounded by fjords and forests and is home to attractions like the National Museum and Vigeland Park. In Bergen, known for its colorful wooden houses at Bryggen, you can experience the gateway to the fjords and taste fresh fish from the city’s fish market.\n\n" +
-        "The fjord region is a must-see, where you’ll find iconic views like the Geirangerfjord and Sognefjord, offering opportunities for boat trips, kayaking, and hiking. Lofoten is another magical place, with spectacular mountains, turquoise fjords, and small fishing villages like Henningsvær and Reine, creating an unforgettable experience. Here, nature is both raw and beautiful, and you can often see eagles soaring over the wild landscape.\n\n" +
-        "For those seeking adventure, the North Cape, Europe’s northernmost point, is a unique place to visit. Here you stand on the edge of the world, gazing over the Arctic Sea. Jotunheimen National Park, with Norway’s highest peaks, is perfect for outdoor enthusiasts looking to hike or climb. During the summer months, the southern coast of Sørlandet with its cliffs and small coves is ideal for sailing and peaceful beach days.",
+    activities: {
+      Oslo: {
+        sv: [
+          "Utforska Vigelandsparken",
+          "Besök Operahuset i Oslo",
+          "Upptäck Nasjonalmuseet",
+          "Promenera i Aker Brygge",
+          "Vandra i Nordmarka skogar",
+        ],
+        en: [
+          "Explore Vigeland Park",
+          "Visit the Oslo Opera House",
+          "Discover the National Museum",
+          "Stroll around Aker Brygge",
+          "Hike in Nordmarka Forest",
+        ],
+      },
+      Bergen: {
+        sv: [
+          "Åk Fløibanen till toppen av Fløyen",
+          "Besök Bryggen – en UNESCO-världsarvsplats",
+          "Upptäck Fisketorget",
+          "Utforska Troldhaugen, Edvard Griegs hem",
+          "Vandra på Ulriken, Bergens högsta fjäll",
+        ],
+        en: [
+          "Take the Fløibanen funicular to Mount Fløyen",
+          "Visit Bryggen – a UNESCO World Heritage site",
+          "Explore the Fish Market",
+          "Discover Troldhaugen, Edvard Grieg's home",
+          "Hike Mount Ulriken, Bergen's tallest mountain",
+        ],
+      },
+      Tromsø: {
+        sv: [
+          "Upplev norrskenet",
+          "Besök Polarmuseet",
+          "Gå på Tromsø Domkyrka",
+          "Utforska Fjellheisen för panoramautsikt",
+          "Delta i hundspannsturer",
+        ],
+        en: [
+          "Experience the Northern Lights",
+          "Visit the Polar Museum",
+          "Walk through Tromsø Cathedral",
+          "Explore Fjellheisen for panoramic views",
+          "Join a dog sledding adventure",
+        ],
+      },
+      Geiranger: {
+        sv: [
+          "Åk på en båttur på Geirangerfjorden",
+          "Utforska de sju systrarnas vattenfall",
+          "Besök Flydalsjuvet för hisnande vyer",
+          "Vandra på Skageflå-leden",
+          "Upptäck Norsk Fjordsenter",
+        ],
+        en: [
+          "Take a boat tour on the Geirangerfjord",
+          "Explore the Seven Sisters Waterfall",
+          "Visit Flydalsjuvet for breathtaking views",
+          "Hike the Skageflå Trail",
+          "Discover the Norwegian Fjord Center",
+        ],
+      },
+    },
 
     travelTips: language === 'sv'
       ? [

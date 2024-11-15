@@ -69,6 +69,45 @@ export default function DestinationAustriaPage() {
     foodImage: "/images/austria/food.jpg",
     popularDestinationsImage: "/images/austria/popular.jpg",
     tipsImage: "/images/austria/tips.jpg",
+    activities: {
+      Vienna: {
+        sv: [
+          "Besök Schönbrunn-palatset",
+          "Utforska Stefansdomen",
+          "Upplev Wiens operahus",
+        ],
+        en: [
+          "Visit the Schönbrunn Palace",
+          "Explore St. Stephen's Cathedral",
+          "Experience Vienna’s Opera House",
+        ],
+      },
+      Salzburg: {
+        sv: [
+          "Utforska Mozarts födelseplats",
+          "Beundra Hohensalzburgs fästning",
+          "Promenera i Mirabellträdgårdarna",
+        ],
+        en: [
+          "Tour Mozart’s Birthplace",
+          "Admire Hohensalzburg Fortress",
+          "Stroll through Mirabell Gardens",
+        ],
+      },
+      Innsbruck: {
+        sv: [
+          "Åk med Nordkette-linbanan",
+          "Besök det Gyllene taket",
+          "Utforska Alpinzoo",
+        ],
+        en: [
+          "Ride the Nordkette Cable Car",
+          "Visit the Golden Roof",
+          "Explore the Alpine Zoo",
+        ],
+      },
+    }
+    
   };
 
   return <Destination data={austriaData} />;
