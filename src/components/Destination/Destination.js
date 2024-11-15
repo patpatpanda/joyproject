@@ -25,7 +25,7 @@ export default function Destination({ data }) {
 
       {/* Destination Section */}
       <section className={styles.destination}>
-          <ActivitiesSection activities={data.activities} />
+         
         {/* General Info Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
           <h2 className={styles.sectionTitle}>
@@ -33,7 +33,7 @@ export default function Destination({ data }) {
           </h2>
           <p>{data.description}</p>
         </div>
-
+        <ActivitiesSection activities={data.activities} />
         {/* Fun Facts Section */}
         <div className={`${styles.section} ${styles.fadeIn}`}>
           <h2 className={styles.sectionTitle}>

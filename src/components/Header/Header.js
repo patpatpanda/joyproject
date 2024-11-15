@@ -72,6 +72,10 @@ export default function Header() {
               <li><Link href="/destination/italy" onClick={closeMenu}>{language === 'sv' ? 'Italien' : 'Italy'}</Link></li>
               <li><Link href="/destination/norway" onClick={closeMenu}>{language === 'sv' ? 'Norge' : 'Norway'}</Link></li>
               <li><Link href="/destination/Austria" onClick={closeMenu}>{language === 'sv' ? 'Österrike' : 'Austria'}</Link></li>
+              <li><Link href="/destination/sweden" onClick={closeMenu}>{language === 'sv' ? 'Sverige' : 'Sweden'}</Link></li>
+              <li><Link href="/destination/denmark" onClick={closeMenu}>{language === 'sv' ? 'Danmark' : 'Denmark'}</Link></li>
+              <li><Link href="/destination/thailand" onClick={closeMenu}>{language === 'sv' ? 'Thailand' : 'Thailand'}</Link></li>
+              <li><Link href="/destination/spain" onClick={closeMenu}>{language === 'sv' ? 'Spanien' : 'Spain'}</Link></li>
             </ul>
           </div>
 
