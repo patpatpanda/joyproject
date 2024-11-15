@@ -52,7 +52,7 @@ export default function Hero() {
             : 'Welcome to a world beyond the ordinary. With us, travel is about more than just visiting a place – it\'s a journey into the deepest corners of the soul. With our exclusive and customized trips, you have the chance to explore iconic places and hidden gems, surrounded by luxury and care.'}
         </p>
         
-        <Link href="/services">
+        <Link href="/destination">
           <button className={styles.ctaButton}>
             {language === 'sv' ? 'Upptäck dina drömmars resa' : 'Discover the journey of your dreams'}
           </button>

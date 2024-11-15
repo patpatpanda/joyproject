@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import Link from "next/link";
 import { useLanguage } from '../../context/LanguageContext';
 import styles from "./ExclusiveExperiences.module.css";
 
@@ -13,29 +14,35 @@ export default function ExclusiveExperiences() {
     {
       name: language === 'sv' ? "Glamping-äventyr" : "Glamping Adventure",
       video: "/videos/glamping.mp4",
-      description:
-        language === 'sv'
-          ? "Upplev en annorlunda typ av camping där natur möter lyx. Tänk dig att vakna upp till soluppgången med fågelkvitter och frisk skogsluft, allt medan du bor bekvämt och rymligt."
-          : "Experience a different kind of camping where nature meets luxury. Imagine waking up to the sunrise with birds chirping and fresh forest air, all while staying in comfort and space.",
-          price: language === 'sv' ? "Läs mer" : "Read more",
+      description: language === 'sv'
+        ? "Föreställ dig en unik campingupplevelse där naturens skönhet möter modern komfort..."
+        : "Imagine a unique camping experience where the beauty of nature meets modern comfort...",
+      highlights: language === 'sv'
+        ? ["Unik boendestil", "Privata tält", "Gourmetmåltider"]
+        : ["Unique lodging", "Private tents", "Gourmet meals"],
+      slug: "glamping",
     },
     {
       name: language === 'sv' ? "Spa-upplevelse" : "Spa Experience",
       video: "/videos/spa.mp4",
-      description:
-        language === 'sv'
-          ? "Fly från vardagen till en plats där lugn och harmoni väntar. Vår spa-upplevelse erbjuder ett brett utbud av behandlingar, från djupavslappnande massage till ansiktsbehandlingar som ger huden nytt liv."
-          : "Escape from everyday life to a place of tranquility and harmony. Our spa experience offers a wide range of treatments, from deep relaxation massages to revitalizing facials.",
-          price: language === 'sv' ? "Läs mer" : "Read more",
+      description: language === 'sv'
+        ? "Lämna stressen bakom dig och njut av lyxiga behandlingar för kropp och själ..."
+        : "Leave stress behind and enjoy luxurious treatments for body and soul...",
+      highlights: language === 'sv'
+        ? ["Varma källor", "Zen-trädgårdar"]
+        : ["Hot springs", "Zen gardens"],
+      slug: "spa",
     },
     {
       name: language === 'sv' ? "Avkopplande getaway" : "Relaxing Getaway",
       video: "/videos/gateway.mp4",
-      description:
-        language === 'sv'
-          ? "I en värld där vardagen ofta går i högt tempo, är en avkopplande getaway precis vad du behöver för att komma i balans."
-          : "In a world where daily life often moves at a fast pace, a relaxing getaway is exactly what you need to find balance.",
-      price: language === 'sv' ? "Läs mer" : "Read more",
+      description: language === 'sv'
+        ? "Fly vardagens stress och återställ balansen i natursköna miljöer..."
+        : "Escape daily stress and restore balance in scenic surroundings...",
+      highlights: language === 'sv'
+        ? ["Charmiga stugor", "Yoga-sessioner"]
+        : ["Charming cabins", "Yoga sessions"],
+      slug: "getaway",
     },
   ];
 
@@ -44,10 +51,7 @@ export default function ExclusiveExperiences() {
       entries.forEach((entry) => {
         const index = parseInt(entry.target.dataset.index, 10);
         if (entry.isIntersecting) {
-          setVisibleSections((prev) => {
-            // Lägg bara till om index inte redan finns
-            return prev.includes(index) ? prev : [...prev, index];
-          });
+          setVisibleSections((prev) => (prev.includes(index) ? prev : [...prev, index]));
         }
       });
     },
@@ -55,9 +59,7 @@ export default function ExclusiveExperiences() {
   );
 
   useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.2,
-    });
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.2 });
 
     sectionsRef.current.forEach((section) => {
       if (section) observer.observe(section);
@@ -67,7 +69,7 @@ export default function ExclusiveExperiences() {
       sectionsRef.current.forEach((section) => {
         if (section) observer.unobserve(section);
       });
-      sectionsRef.current = []; // Rensa referenser vid avmontering
+      sectionsRef.current = [];
     };
   }, [handleIntersection]);
 
@@ -91,9 +93,16 @@ export default function ExclusiveExperiences() {
             ></video>
           </div>
           <div className={styles.content}>
-            <h3 className={styles.name}>{experience.name}</h3>
+            <h1 className={styles.heading}>{experience.name}</h1> {/* Uppdaterad */}
             <p className={styles.description}>{experience.description}</p>
-            <p className={styles.price}>{experience.price}</p>
+            <ul className={styles.highlights}>
+              {experience.highlights.map((highlight, idx) => (
+                <li key={idx}>{highlight}</li>
+              ))}
+            </ul>
+            <Link href={`/exclusive/${experience.slug}`} className={styles.readMore}>
+              {language === 'sv' ? "Läs mer" : "Read more"}
+            </Link>
           </div>
         </div>
       ))}
