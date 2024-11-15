@@ -114,12 +114,7 @@ export default function ActivitiesSection({ activities }) {
         <p className={styles.selectCity}>{t.selectCity}</p>
       )}
 
-      {/* Kontaktknapp */}
-      <div className={styles.contact}>
-        <a href="/#contact" className={styles.contactButton}>
-          {t.contactButton}
-        </a>
-      </div>
+    
     </div>
   );
 }
