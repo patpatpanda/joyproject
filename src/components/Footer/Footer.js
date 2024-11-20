@@ -50,9 +50,9 @@ export default function Footer() {
           <h3 className={styles.sectionTitle}>
             {language === 'sv' ? 'Kontakt' : 'Contact'}
           </h3>
-          <p>Email: joyrudqvist@gmail.com</p>
+          <p>Email: info@destinationofjoy.com</p>
           <p>{language === 'sv' ? 'Telefon' : 'Phone'}: +46 123 456 789</p>
-          <p>{language === 'sv' ? 'Adress' : 'Address'}: Storgatan 1, 111 22 Stockholm</p>
+         
         </div>
 
         <div className={styles.socialSection}>
